@@ -81,19 +81,21 @@ class PortfolioController extends Controller
                 'I am a motivated beginner in Computer Science, deeply engaged in learning the core principles of programming and problem-solving. I am currently exploring web development and applying my growing skills by building small projects.',
                 'As a passionate Computer Science student and aspiring web developer, my purpose is to create meaningful digital experiences that solve real-world problems and make technology accessible to everyone. I am a quick learner seeking an internship or collaborative environment where I can gain hands-on experience and support a development team.',
             ],
-            'email' => 'rucielmaeobias277@gmail.com',
+            'email' => 'xyradelcastillo@gmail.com',
             'phone' => '+63 918 467 600', // set to null to hide it
             'location' => 'Zone 1, Linasin Bangued Abra',
             'availability' => '', // set a value like 'Available for freelance work' to show the green badge
-            'github' => 'https://rucielmaeobias2105.github.io/',
+            'github' => '',
             'linkedin' => '', // no LinkedIn yet — paste your profile URL here when you have one
             'socials' => [
                 ['icon' => 'facebook', 'label' => 'Facebook', 'url' => '#'],
                 ['icon' => 'instagram', 'label' => 'Instagram', 'url' => '#'],
                 ['icon' => 'tiktok', 'label' => 'TikTok', 'url' => '#'],
+                ['icon' => 'telegram', 'label' => 'Telegram', 'url' => '#'],
+                ['icon' => 'discord', 'label' => 'Discord', 'url' => '#'],
             ],
             'resume' => asset('files/Xyra-G.-Delcastillo-Resume.pdf'),
-            'avatar' => asset('images/profile.png'),
+            'avatar' => asset('images/xyra.jpg'),
         ];
     }
 
@@ -121,12 +123,12 @@ class PortfolioController extends Controller
             [
                 'institution' => 'Data Center College of the Philippines - Bangued',
                 'degree' => 'Bachelor of Science in Computer Science',
-                'field' => 'Tertiary · 3rd Year',
+                'field' => 'Tertiary · 4th Year',
                 'period' => '2023 — Present',
                 'description' => 'Brgy. Ubbog-Lipcan, Bangued, Abra.',
             ],
             [
-                'institution' => 'An-anaao Integrated School',
+                'institution' => 'Abra High School',
                 'degree' => 'Secondary Education',
                 'field' => 'TVL-ICT CSS NCII',
                 'period' => '2017 — 2023',
