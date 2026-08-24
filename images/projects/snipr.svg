@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Snipr placeholder thumbnail">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="1040" cy="140" r="190" fill="#ffffff" opacity="0.10"/>
+  <circle cx="160" cy="620" r="160" fill="#ffffff" opacity="0.09"/>
+  <!-- terminal window -->
+  <rect x="680" y="180" width="400" height="270" rx="18" fill="#1c1917" opacity="0.75"/>
+  <line x1="680" y1="240" x2="1080" y2="240" stroke="#ffffff" stroke-width="3" opacity="0.4"/>
+  <g fill="#ffffff">
+    <circle cx="712" cy="210" r="9" opacity="0.8"/><circle cx="742" cy="210" r="9" opacity="0.55"/><circle cx="772" cy="210" r="9" opacity="0.3"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="14" stroke-linecap="round">
+    <path d="M715 300l40 32-40 32" opacity="0.9"/>
+    <path d="M795 364h180" opacity="0.6"/>
+    <path d="M715 404h120" opacity="0.35"/>
+  </g>
+  <text x="80" y="620" font-family="'Segoe UI', Arial, sans-serif" font-size="220" font-weight="800" fill="#ffffff" opacity="0.92">&gt;_</text>
+</svg>

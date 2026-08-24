@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alex Carter — CV</title>
+    <style>
+        :root { --accent: #4f46e5; --ink: #18181b; --muted: #52525b; --line: #e4e4e7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f4f5; color: var(--ink); line-height: 1.55; padding: 24px 16px 48px;
+        }
+        .sheet { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 12px;
+                 box-shadow: 0 10px 40px -12px rgb(0 0 0 / .15); padding: 56px 60px; }
+        h1 { font-size: 30px; letter-spacing: -.02em; }
+        .role { color: var(--accent); font-weight: 700; text-transform: uppercase;
+                letter-spacing: .08em; font-size: 13px; margin-top: 2px; }
+        .contact { color: var(--muted); font-size: 13px; margin-top: 10px; }
+        .contact span + span::before { content: "\00B7"; margin: 0 8px; color: var(--line); }
+        a { color: inherit; }
+        section { margin-top: 28px; }
+        h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .14em;
+             color: var(--accent); border-bottom: 2px solid var(--accent);
+             padding-bottom: 6px; margin-bottom: 14px; }
+        h3 { font-size: 14.5px; }
+        .entry + .entry { margin-top: 16px; }
+        .meta { color: var(--muted); font-size: 12.5px; font-style: italic; margin-top: 1px; }
+        .desc { font-size: 13px; margin-top: 3px; color: #3f3f46; }
+        p.body { font-size: 13px; color: #3f3f46; margin-top: 8px; }
+        p.body + p.body { margin-top: 6px; }
+        .stats { display: flex; gap: 24px; margin-top: 8px; }
+        .stats div b { display: block; font-size: 18px; color: var(--accent); }
+        .stats div small { color: var(--muted); }
+        footer { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 10px;
+                 color: var(--muted); font-size: 11.5px; }
+
+        /* Toolbar (screen only) */
+        .toolbar { max-width: 800px; margin: 0 auto 14px; display: flex; gap: 8px; justify-content: flex-end; }
+        .toolbar a, .toolbar button {
+            appearance: none; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600;
+            padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line);
+            background: #fff; color: var(--ink); text-decoration: none; transition: all .15s ease;
+        }
+        .toolbar a:hover, .toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+        .toolbar .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .toolbar .primary:hover { filter: brightness(1.1); color: #fff; }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .sheet { box-shadow: none; border-radius: 0; padding: 0; max-width: none; }
+            .no-print { display: none !important; }
+            @page { margin: 18mm 16mm; }
+            section { break-inside: avoid-page; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar no-print">
+        <a href="">&larr; Portfolio</a>
+        <button type="button" onclick="window.print()">Print</button>
+        <a class="primary" href="/cv/alex-carter-cv.pdf">Download PDF</a>
+    </div>
+
+    <div class="sheet">
+        <header>
+            <h1>Alex Carter</h1>
+            <p class="role">Full-Stack Web Developer</p>
+            <p class="contact">
+                <span><a href="mailto:hello@alexcarter.dev">hello@alexcarter.dev</a></span>
+                <span>+49 30 1234 5678</span>                <span>Berlin, Germany</span>
+                <span><a href="https://github.com/username" target="_blank" rel="noopener noreferrer">github.com/username</a></span>
+                <span><a href="https://www.linkedin.com/in/username" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/username</a></span>
+            </p>
+        </header>
+
+        <section>
+            <h2>Profile</h2>
+                            <p class="body">I am a full-stack web developer with a passion for building things that live on the internet. My focus is on writing clean, maintainable code and crafting interfaces that feel effortless to use.</p>
+                            <p class="body">When I am not coding, you will find me contributing to open-source projects, mentoring junior developers, or exploring the latest in back-end architecture and performance.</p>
+                        <div class="stats">
+                                    <div><b>5+</b><small>Years of experience</small></div>
+                                    <div><b>20+</b><small>Projects completed</small></div>
+                                    <div><b>3</b><small>Certifications</small></div>
+                            </div>
+        </section>
+
+        <section>
+            <h2>Education &amp; Certifications</h2>
+                            <div class="entry">
+                    <h3>M.Sc. Software Engineering</h3>
+                    <p class="meta">Technical University of Berlin &middot; Distributed Systems &middot; 2021 — 2024</p>
+                                            <p class="desc">Focus on scalable architectures, cloud deployment and software quality assurance.</p>
+                                    </div>
+                            <div class="entry">
+                    <h3>B.Sc. Computer Science</h3>
+                    <p class="meta">Technical University of Berlin &middot; Web Technologies &middot; 2017 — 2021</p>
+                                            <p class="desc">Foundations of computer science with an emphasis on human-computer interaction.</p>
+                                    </div>
+                            <div class="entry">
+                    <h3>Certified Laravel Developer</h3>
+                    <p class="meta">Laravel Certification Program &middot; Professional certification &middot; 2023</p>
+                                            <p class="desc">Advanced application structure, testing practices and package development.</p>
+                                    </div>
+                            <div class="entry">
+                    <h3>Cloud Practitioner</h3>
+                    <p class="meta">AWS Training &amp; Certification &middot; Professional certification &middot; 2022</p>
+                                            <p class="desc">Core AWS services, security, architecture principles and pricing models.</p>
+                                    </div>
+                    </section>
+
+        <section>
+            <h2>Selected Projects</h2>
+                            <div class="entry">
+                    <h3>TaskFlow
+                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="https://github.com/username/taskflow" target="_blank" rel="noopener noreferrer">github.com/username/taskflow</a></span>
+                    </h3>
+                    <p class="meta">Laravel, Livewire, MySQL</p>
+                    <p class="desc">A team task management app with real-time collaboration, kanban boards and granular role permissions.</p>
+                </div>
+                            <div class="entry">
+                    <h3>ShopLite
+                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="https://github.com/username/shoplite" target="_blank" rel="noopener noreferrer">github.com/username/shoplite</a></span>
+                    </h3>
+                    <p class="meta">Vue 3, Pinia, Tailwind CSS</p>
+                    <p class="desc">A lightweight e-commerce storefront with cart, checkout flow and an admin dashboard for inventory.</p>
+                </div>
+                            <div class="entry">
+                    <h3>DevBlog API
+                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="https://github.com/username/devblog-api" target="_blank" rel="noopener noreferrer">github.com/username/devblog-api</a></span>
+                    </h3>
+                    <p class="meta">PHP 8, Laravel, REST</p>
+                    <p class="desc">A RESTful blogging API with token authentication, rate limiting and full OpenAPI documentation.</p>
+                </div>
+                            <div class="entry">
+                    <h3>WeatherNow
+                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="https://github.com/username/weathernow" target="_blank" rel="noopener noreferrer">github.com/username/weathernow</a></span>
+                    </h3>
+                    <p class="meta">JavaScript, Chart.js, OpenWeather API</p>
+                    <p class="desc">A weather dashboard with animated forecasts, geolocation search and historical trend charts.</p>
+                </div>
+                            <div class="entry">
+                    <h3>Snipr
+                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="https://github.com/username/snipr" target="_blank" rel="noopener noreferrer">github.com/username/snipr</a></span>
+                    </h3>
+                    <p class="meta">Node.js, CLI, SQLite</p>
+                    <p class="desc">A command-line snippet manager that syncs reusable code blocks across machines via Git.</p>
+                </div>
+                            <div class="entry">
+                    <h3>Portfolio Starter
+                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="https://github.com/username/portfolio-starter" target="_blank" rel="noopener noreferrer">github.com/username/portfolio-starter</a></span>
+                    </h3>
+                    <p class="meta">Blade, Tailwind CSS, Vite</p>
+                    <p class="desc">This very website: a single-page portfolio template built with Laravel Blade, Vite and Tailwind CSS.</p>
+                </div>
+                    </section>
+
+        <footer>
+            Generated August 2026 &middot; 
+        </footer>
+    </div>
+
+    </body>
+</html>

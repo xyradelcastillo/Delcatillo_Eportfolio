@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="ShopLite placeholder thumbnail">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="1080" cy="140" r="200" fill="#ffffff" opacity="0.09"/>
+  <circle cx="120" cy="620" r="170" fill="#ffffff" opacity="0.08"/>
+  <circle cx="300" cy="140" r="70" fill="#ffffff" opacity="0.12"/>
+  <!-- shopping bag -->
+  <path d="M760 260h240l-30 320a40 40 0 0 1-40 36H830a40 40 0 0 1-40-36l-30-320z" fill="#ffffff" opacity="0.45"/>
+  <path d="M820 300v-50a60 60 0 0 1 120 0v50" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round" opacity="0.75"/>
+  <text x="80" y="620" font-family="'Segoe UI', Arial, sans-serif" font-size="220" font-weight="800" fill="#ffffff" opacity="0.9">SL</text>
+</svg>
