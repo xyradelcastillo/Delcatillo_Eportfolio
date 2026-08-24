@@ -1,58 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Personal Portfolio — Laravel + Tailwind CSS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A single-page, fully responsive personal portfolio website built with **Laravel**, **Blade** and **Tailwind CSS** (via Vite). No database — every piece of content lives in plain PHP arrays and Blade views. Includes a flash-free dark/light mode toggle, smooth anchor scrolling, a filterable project grid and self-hosted fonts/icons (no external requests).
 
-## About Laravel
+## Requirements
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP **>= 8.2** (with `mbstring`, `openssl`, `curl`, `dom`, `fileinfo` extensions)
+- Composer
+- Node.js 18+ & npm
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> ⚠️ On this machine XAMPP ships PHP 8.0, which is too old. A suitable PHP lives at
+> `C:\tools\php83\php.exe` — prefix commands with it or put that folder first on your PATH.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Getting started
 
 ```bash
-composer require laravel/boost --dev
+# 1. Install PHP dependencies
+composer install
 
-php artisan boost:install
+# 2. Create your environment file (a ready-made .env already ships)
+cp .env.example .env   # skip if .env exists
+php artisan key:generate
+
+# 3. Install frontend dependencies
+npm install
+
+# 4a. Development (hot reload)
+npm run dev
+php artisan serve
+
+# 4b. Production build
+npm run build
+php artisan serve
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Then open <http://127.0.0.1:8000>.
 
-## Contributing
+## Where to edit your content
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Everything you see on the page is defined in **one place**:
 
-## Code of Conduct
+| File | What lives there |
+| --- | --- |
+| `app/Http/Controllers/PortfolioController.php` | Name, role, headline, bio, email, phone, location, GitHub/LinkedIn URLs, avatar, quick stats, education timeline entries, project cards and category filters |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The arrays are commented — search for `EDIT:` markers:
 
-## Security Vulnerabilities
+```php
+// app/Http/Controllers/PortfolioController.php
+'name'    => 'Alex Carter',          // ← your name
+'github'  => 'https://github.com/username', // ← your profile
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Projects
 
-## License
+Each entry needs `title`, `slug`, `description`, `image`, `github`, `demo`, `tags` and a `category` key that matches one of the keys in `projectFilters()` (`apps`, `apis`, `oss`). Drop your own screenshots into `public/images/projects/`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Sections & layout
+
+| File | Purpose |
+| --- | --- |
+| `resources/views/layouts/app.blade.php` | Base HTML, theme-init script, nav & footer includes |
+| `resources/views/partials/navigation.blade.php` | Sticky navbar, anchor links, hamburger menu, theme toggle |
+| `resources/views/partials/hero.blade.php` | Hero / basic information |
+| `resources/views/partials/about.blade.php` | Bio, portrait, stats row |
+| `resources/views/partials/education.blade.php` | Vertical timeline |
+| `resources/views/partials/projects.blade.php` | Filterable project grid |
+| `resources/views/partials/contact.blade.php` | Contact panel |
+| `resources/views/partials/footer.blade.php` | Footer with social icons |
+| `resources/views/components/icon.blade.php` | Inline SVG icon set |
+| `resources/js/app.js` | Theme toggle, mobile menu, active-link highlight, project filters, scroll reveal |
+| `resources/css/app.css` | Tailwind layers + shared component classes |
+| `tailwind.config.js` | Tailwind config — `darkMode: 'class'`, font families |
+
+## Dark / light mode
+
+The theme is resolved **before first paint** by an inline `<script>` in `<head>`: it reads
+`localStorage.theme` and falls back to the OS `prefers-color-scheme`. Toggling flips the
+`dark` class on `<html>` (Tailwind is configured with `darkMode: 'class'`) and persists the choice.
+
+## Notes
+
+- **No database**: sessions/cache use the `file` driver; no migrations or Eloquent models exist.
+- All icons are inline SVGs; all images are local SVG placeholders in `public/images/`.

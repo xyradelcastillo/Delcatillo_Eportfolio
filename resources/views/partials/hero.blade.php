@@ -55,7 +55,7 @@
         </div>
 
         {{-- Circular profile picture --}}
-        <div class="reveal flex justify-center lg:col-span-5" style="transition-delay: 200ms">
+            <div class="reveal group flex justify-center lg:col-span-5" style="transition-delay: 200ms">
             <div class="relative">
                 <div class="absolute -inset-6 -z-10 rotate-6 rounded-[2.5rem] bg-gradient-to-br from-indigo-500/25 via-violet-500/20 to-transparent blur-sm transition-transform duration-500 group-hover:rotate-12" aria-hidden="true"></div>
                 <img src="{{ $profile['avatar'] }}" alt="Portrait of {{ $profile['name'] }}"
