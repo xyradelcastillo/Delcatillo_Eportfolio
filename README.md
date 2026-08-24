@@ -17,10 +17,27 @@ A single-page, fully responsive personal portfolio website built with **Laravel*
 # 1. Install PHP dependencies
 composer install
 
-# 2. Create your environment file (a ready-made .env already ships)
-cp .env.example .env   # skip if .env exists
+# 2. Create your environment file (.env.example was removed — this project
+#    uses no database; only APP_KEY matters) and generate the key
 php artisan key:generate
+```
 
+If you don't have a `.env` yet, copy these minimal contents into one:
+
+```env
+APP_NAME=Portfolio
+APP_ENV=local
+APP_KEY=
+APP_URL=http://127.0.0.1:8000
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
+LOG_CHANNEL=stack
+```
+
+Then run `php artisan key:generate` again to fill `APP_KEY`.
+
+```bash
 # 3. Install frontend dependencies
 npm install
 
