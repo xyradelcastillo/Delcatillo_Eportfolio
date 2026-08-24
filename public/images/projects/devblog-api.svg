@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="DevBlog API placeholder thumbnail">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <circle cx="1050" cy="130" r="190" fill="#ffffff" opacity="0.08"/>
+  <circle cx="150" cy="630" r="160" fill="#ffffff" opacity="0.08"/>
+  <!-- code window -->
+  <rect x="690" y="170" width="380" height="280" rx="18" fill="#ffffff" opacity="0.25"/>
+  <line x1="690" y1="230" x2="1070" y2="230" stroke="#ffffff" stroke-width="3" opacity="0.5"/>
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="722" cy="200" r="9"/><circle cx="752" cy="200" r="9"/><circle cx="782" cy="200" r="9"/>
+  </g>
+  <g stroke-linecap="round" stroke-width="16">
+    <path d="M730 290h140M730 340h200M730 390h100" stroke="#ffffff" opacity="0.65"/>
+  </g>
+  <text x="80" y="620" font-family="'Segoe UI', Arial, sans-serif" font-size="200" font-weight="800" fill="#ffffff" opacity="0.9">{ }</text>
+</svg>
