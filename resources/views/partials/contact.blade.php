@@ -1,65 +1,146 @@
-{{-- CONTACT: invitation panel with contact methods and social links. --}}
+{{-- CONTACT: contact info cards on the left, message form on the right
+     (layout mirrors the original reference site, styled with this template's components).
+     The form has no backend — submitting opens the visitor's mail app with the
+     message pre-filled for {{ $profile['email'] }}. --}}
 <section id="contact" class="section bg-zinc-50 dark:bg-zinc-900/40">
     <div class="container-site">
-        <div class="reveal card mx-auto max-w-3xl px-6 py-14 text-center shadow-soft dark:shadow-soft-dark sm:px-12">
-            <x-section-heading eyebrow="Get in touch" title="Let&rsquo;s work together" align="center" />
+        <x-section-heading eyebrow="Get in touch" title="Contact me" align="center" />
 
-            <p class="lead mx-auto max-w-xl text-zinc-600 dark:text-zinc-400">
-                Have a project in mind, a question about my work, or just want to say hi?
-                My inbox is always open — I&rsquo;ll get back to you as soon as I can.
-            </p>
+        <p class="lead mx-auto mt-4 max-w-xl text-center text-zinc-600 dark:text-zinc-400">
+            Have a question about my work, an opportunity, or just want to say hi?
+            My inbox is always open — I&rsquo;ll get back to you as soon as I can.
+        </p>
 
-            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <a href="mailto:{{ $profile['email'] }}" class="btn btn-primary">
-                    <x-icon name="send" class="h-4 w-4" />
-                    Say hello
-                </a>
-                <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <x-icon name="github" class="h-4 w-4" />
-                    Follow on GitHub
-                </a>
-            </div>
-
-            {{-- Contact methods --}}
-            <div class="mt-14 grid gap-8 sm:grid-cols-3">
-                <div>
-                    <p class="eyebrow">Email</p>
-                    <a href="mailto:{{ $profile['email'] }}"
-                       class="mt-2 inline-block break-all font-medium text-zinc-800 transition hover:text-indigo-600 dark:text-zinc-200 dark:hover:text-indigo-400">
-                        {{ $profile['email'] }}
-                    </a>
+        <div class="mt-14 grid items-start gap-8 lg:grid-cols-5">
+            {{-- Contact info cards --}}
+            <div class="grid gap-4 lg:col-span-2">
+                <div class="reveal card flex items-start gap-4 p-5 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-md dark:hover:border-indigo-400/40">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400" aria-hidden="true">
+                        <x-icon name="map-pin" class="h-5 w-5" />
+                    </span>
+                    <div>
+                        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Address</h3>
+                        <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{{ $profile['location'] }}</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="eyebrow">Phone</p>
-                    @if (!empty($profile['phone']))
-                        <a href="tel:{{ preg_replace('/[^+\d]/', '', $profile['phone']) }}"
-                           class="mt-2 inline-block font-medium text-zinc-800 transition hover:text-indigo-600 dark:text-zinc-200 dark:hover:text-indigo-400">
-                            {{ $profile['phone'] }}
+
+                <div class="reveal card flex items-start gap-4 p-5 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-md dark:hover:border-indigo-400/40">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400" aria-hidden="true">
+                        <x-icon name="mail" class="h-5 w-5" />
+                    </span>
+                    <div class="min-w-0">
+                        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Email</h3>
+                        <a href="mailto:{{ $profile['email'] }}" class="mt-1 block break-all text-sm text-zinc-500 transition hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+                            {{ $profile['email'] }}
                         </a>
-                    @else
-                        <p class="mt-2 font-medium text-zinc-400 dark:text-zinc-500">On request</p>
-                    @endif
+                    </div>
                 </div>
-                <div>
-                    <p class="eyebrow">Location</p>
-                    <p class="mt-2 font-medium text-zinc-800 dark:text-zinc-200">{{ $profile['location'] }}</p>
+
+                <div class="reveal card flex items-start gap-4 p-5 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-md dark:hover:border-indigo-400/40">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400" aria-hidden="true">
+                        <x-icon name="phone" class="h-5 w-5" />
+                    </span>
+                    <div>
+                        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Phone</h3>
+                        @if (!empty($profile['phone']))
+                            <a href="tel:{{ preg_replace('/[^+\d]/', '', $profile['phone']) }}" class="mt-1 block text-sm text-zinc-500 transition hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+                                {{ $profile['phone'] }}
+                            </a>
+                        @else
+                            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">On request</p>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="reveal card flex items-start gap-4 p-5 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-md dark:hover:border-indigo-400/40">
+                    <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400" aria-hidden="true">
+                        <x-icon name="github" class="h-5 w-5" />
+                    </span>
+                    <div class="min-w-0">
+                        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">GitHub</h3>
+                        <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-sm text-zinc-500 transition hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+                            {{ preg_replace('#^https?://(www\.)?#', '', $profile['github']) }}
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            {{-- Social links --}}
-            <div class="mt-12 flex items-center justify-center gap-3">
-                <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
-                   aria-label="GitHub profile" title="GitHub">
-                    <x-icon name="github" />
+            {{-- Message form --}}
+            <form id="contact-form" class="reveal card p-6 shadow-soft sm:p-8 lg:col-span-3 dark:shadow-soft-dark" novalidate>
+                <div class="grid gap-5 sm:grid-cols-2">
+                    <div>
+                        <label for="contact-name" class="form-label">Your Full Name <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Enter your full name" class="form-field" />
+                    </div>
+                    <div>
+                        <label for="contact-email" class="form-label">Your Email Address <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
+                        <input type="email" id="contact-email" name="email" required placeholder="Enter your email address" class="form-field" />
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label for="contact-subject" class="form-label">Your Subject <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
+                    <input type="text" id="contact-subject" name="subject" required placeholder="Enter message subject" class="form-field" />
+                </div>
+
+                <div class="mt-5">
+                    <label for="contact-message" class="form-label">Your Message <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
+                    <textarea id="contact-message" name="message" rows="6" required placeholder="Type your message here..." class="form-field resize-y"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">
+                    Send Message
+                    <x-icon name="send" class="h-4 w-4" />
+                </button>
+
+                <p id="contact-status" class="mt-4 hidden text-sm font-medium text-emerald-700 dark:text-emerald-400"></p>
+            </form>
+        </div>
+
+        {{-- Social links --}}
+        <div class="mt-12 flex items-center justify-center gap-3">
+            <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
+               aria-label="GitHub profile" title="GitHub">
+                <x-icon name="github" />
+            </a>
+            @foreach ($profile['socials'] as $social)
+                <a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
+                   aria-label="{{ $social['label'] }} profile" title="{{ $social['label'] }}">
+                    <x-icon name="{{ $social['icon'] }}" />
                 </a>
-                <a href="{{ $profile['linkedin'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
-                   aria-label="LinkedIn profile" title="LinkedIn">
-                    <x-icon name="linkedin" />
-                </a>
-                <a href="mailto:{{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
-                    <x-icon name="mail" />
-                </a>
-            </div>
+            @endforeach
+            <a href="mailto:{{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
+                <x-icon name="mail" />
+            </a>
         </div>
     </div>
 </section>
+
+{{-- No backend mailer is configured: build a pre-filled email in the visitor's
+     mail app instead. Swap this for a POST route + Mailable later if needed. --}}
+<script>
+    (function () {
+        var form = document.getElementById('contact-form');
+        var status = document.getElementById('contact-status');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (!form.reportValidity()) {
+                return;
+            }
+
+            var data = new FormData(form);
+            var subject = encodeURIComponent(data.get('subject'));
+            var body = encodeURIComponent(
+                data.get('message') + '\n\n— ' + data.get('name') + ' (' + data.get('email') + ')'
+            );
+
+            window.location.href =
+                "mailto:{{ $profile['email'] }}?subject=" + subject + '&body=' + body;
+
+            status.textContent = 'Opening your email app — your message is ready to send.';
+            status.classList.remove('hidden');
+        });
+    })();
+</script>

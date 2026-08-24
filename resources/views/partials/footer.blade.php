@@ -17,10 +17,12 @@
                aria-label="GitHub profile" title="GitHub">
                 <x-icon name="github" class="h-4 w-4" />
             </a>
-            <a href="{{ $profile['linkedin'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn h-9 w-9"
-               aria-label="LinkedIn profile" title="LinkedIn">
-                <x-icon name="linkedin" class="h-4 w-4" />
-            </a>
+            @foreach ($profile['socials'] as $social)
+                <a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn h-9 w-9"
+                   aria-label="{{ $social['label'] }} profile" title="{{ $social['label'] }}">
+                    <x-icon name="{{ $social['icon'] }}" class="h-4 w-4" />
+                </a>
+            @endforeach
             <a href="mailto:{{ $profile['email'] }}" class="icon-btn h-9 w-9"
                aria-label="Send an email" title="Email">
                 <x-icon name="mail" class="h-4 w-4" />

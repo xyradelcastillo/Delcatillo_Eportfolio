@@ -22,6 +22,7 @@ class PortfolioController extends Controller
             'profile' => $this->profile(),
             'stats' => $this->stats(),
             'education' => $this->education(),
+            'certificates' => $this->certificates(),
             'projects' => $this->projects(),
             'projectFilters' => $this->projectFilters(),
         ]);
@@ -58,6 +59,7 @@ class PortfolioController extends Controller
             'profile' => $this->profile(),
             'stats' => $this->stats(),
             'education' => $this->education(),
+            'certificates' => $this->certificates(),
             'projects' => $this->projects(),
             'generated' => now()->format('F Y'),
         ];
@@ -70,22 +72,28 @@ class PortfolioController extends Controller
     {
         return [
             // EDIT: your personal details
-            'name' => 'Alex Carter',
-            'initials' => 'AC',
-            'role' => 'Full-Stack Web Developer',
-            'headline' => 'I build clean, fast & accessible web applications.',
-            'bio_short' => 'Berlin-based developer focused on Laravel, Tailwind CSS and modern JavaScript. I turn complex requirements into simple, beautiful products.',
+            'name' => 'Xyra G. Delcastillo',
+            'initials' => 'Xyra G. Delcastillo',
+            'role' => 'BS - Information Technology Student',
+            'headline' => 'I turn curiosity into code, one project at a time.',
+            'bio_short' => 'Motivated Computer Science student from Tayum, Abra, exploring web development while building small projects that sharpen my programming and problem-solving skills.',
             'bio' => [
-                'I am a full-stack web developer with a passion for building things that live on the internet. My focus is on writing clean, maintainable code and crafting interfaces that feel effortless to use.',
-                'When I am not coding, you will find me contributing to open-source projects, mentoring junior developers, or exploring the latest in back-end architecture and performance.',
+                'I am a motivated beginner in Computer Science, deeply engaged in learning the core principles of programming and problem-solving. I am currently exploring web development and applying my growing skills by building small projects.',
+                'As a passionate Computer Science student and aspiring web developer, my purpose is to create meaningful digital experiences that solve real-world problems and make technology accessible to everyone. I am a quick learner seeking an internship or collaborative environment where I can gain hands-on experience and support a development team.',
             ],
-            'email' => 'hello@alexcarter.dev',
-            'phone' => '+49 30 1234 5678', // set to null to hide it
-            'location' => 'Berlin, Germany',
-            'availability' => 'Available for freelance work',
-            'github' => 'https://github.com/username',
-            'linkedin' => 'https://www.linkedin.com/in/username',
-            'avatar' => asset('images/profile.svg'),
+            'email' => 'rucielmaeobias277@gmail.com',
+            'phone' => '+63 918 467 600', // set to null to hide it
+            'location' => 'Zone 1, Linasin Bangued Abra',
+            'availability' => '', // set a value like 'Available for freelance work' to show the green badge
+            'github' => 'https://rucielmaeobias2105.github.io/',
+            'linkedin' => '', // no LinkedIn yet — paste your profile URL here when you have one
+            'socials' => [
+                ['icon' => 'facebook', 'label' => 'Facebook', 'url' => '#'],
+                ['icon' => 'instagram', 'label' => 'Instagram', 'url' => '#'],
+                ['icon' => 'tiktok', 'label' => 'TikTok', 'url' => '#'],
+            ],
+            'resume' => asset('files/Xyra-G.-Delcastillo-Resume.pdf'),
+            'avatar' => asset('images/profile.png'),
         ];
     }
 
@@ -96,9 +104,10 @@ class PortfolioController extends Controller
     {
         return [
             // EDIT: your own numbers
-            ['value' => '5+', 'label' => 'Years of experience'],
-            ['value' => '20+', 'label' => 'Projects completed'],
-            ['value' => '3', 'label' => 'Certifications'],
+            ['value' => '15+', 'label' => 'Years of learning'],
+            ['value' => '9+', 'label' => 'Academic awards'],
+            ['value' => '5+', 'label' => 'Programming languages'],
+            ['value' => '4+', 'label' => 'Contests joined'],
         ];
     }
 
@@ -110,32 +119,57 @@ class PortfolioController extends Controller
         return [
             // EDIT: add / remove entries freely — newest first looks best.
             [
-                'institution' => 'Technical University of Berlin',
-                'degree' => 'M.Sc. Software Engineering',
-                'field' => 'Distributed Systems',
-                'period' => '2021 — 2024',
-                'description' => 'Focus on scalable architectures, cloud deployment and software quality assurance.',
+                'institution' => 'Data Center College of the Philippines - Bangued',
+                'degree' => 'Bachelor of Science in Computer Science',
+                'field' => 'Tertiary · 3rd Year',
+                'period' => '2023 — Present',
+                'description' => 'Brgy. Ubbog-Lipcan, Bangued, Abra.',
             ],
             [
-                'institution' => 'Technical University of Berlin',
-                'degree' => 'B.Sc. Computer Science',
-                'field' => 'Web Technologies',
-                'period' => '2017 — 2021',
-                'description' => 'Foundations of computer science with an emphasis on human-computer interaction.',
+                'institution' => 'An-anaao Integrated School',
+                'degree' => 'Secondary Education',
+                'field' => 'TVL-ICT CSS NCII',
+                'period' => '2017 — 2023',
+                'description' => 'Brgy. An-anaao Budac, Tayum, Abra.',
             ],
             [
-                'institution' => 'Laravel Certification Program',
-                'degree' => 'Certified Laravel Developer',
-                'field' => 'Professional certification',
+                'institution' => 'Velasco Elementary School',
+                'degree' => 'Elementary Education',
+                'field' => 'Primary',
+                'period' => '2010 — 2017',
+                'description' => 'Brgy. Velasco, Tayum, Abra.',
+            ],
+        ];
+    }
+
+    /**
+     * Certificates & achievements rendered as cards next to the education
+     * timeline (education on the left, certificates on the right).
+     */
+    private function certificates(): array
+    {
+        return [
+            // EDIT: add / remove certificates freely.
+            [
+                'title' => 'Computer Systems Servicing NCII',
+                'issuer' => 'TVL-ICT Strand · An-anaao Integrated School',
+                'icon' => 'award',
                 'period' => '2023',
-                'description' => 'Advanced application structure, testing practices and package development.',
+                'description' => 'National Certificate II in Computer Systems Servicing earned under the senior high school TVL-ICT strand.',
             ],
             [
-                'institution' => 'AWS Training & Certification',
-                'degree' => 'Cloud Practitioner',
-                'field' => 'Professional certification',
-                'period' => '2022',
-                'description' => 'Core AWS services, security, architecture principles and pricing models.',
+                'title' => 'Work Immersion — 80 Hours',
+                'issuer' => 'Tayum Municipal Civil Registry · Municipality of Tayum',
+                'icon' => 'briefcase',
+                'period' => 'March 2023',
+                'description' => 'Completed 80 hours of senior high school work immersion assisting at the municipal civil registry office.',
+            ],
+            [
+                'title' => 'Sangguniang Kabataan Kagawad',
+                'issuer' => 'Barangay Velasco, Tayum, Abra',
+                'icon' => 'briefcase',
+                'period' => '2023 — Present',
+                'description' => 'Elected SK Kagawad — Chairman on Education and Culture; Committee on Peace and Environment.',
             ],
         ];
     }
@@ -149,64 +183,64 @@ class PortfolioController extends Controller
         return [
             // EDIT: replace these placeholders with your real projects.
             [
-                'title' => 'TaskFlow',
-                'slug' => 'taskflow',
-                'description' => 'A team task management app with real-time collaboration, kanban boards and granular role permissions.',
-                'image' => asset('images/projects/taskflow.svg'),
-                'github' => 'https://github.com/username/taskflow',
+                'title' => 'ITCS Enrollment System',
+                'slug' => 'itcs-enrollment-system',
+                'description' => 'A comprehensive Java enrollment system for IT and CS students. It collects personal and academic details, displays the right curriculum per course/year/semester, computes tuition fees, applies academic discounts, processes down payments and prints a full enrollment summary with the student\'s balance.',
+                'image' => asset('images/projects/itcs-enrollment.jpg'),
+                'github' => '#',
                 'demo' => '#', // live demo URL, or '#'
-                'tags' => ['Laravel', 'Livewire', 'MySQL'],
-                'category' => 'apps',
+                'tags' => ['Java', 'Console App'],
+                'category' => 'school',
             ],
             [
-                'title' => 'ShopLite',
-                'slug' => 'shoplite',
-                'description' => 'A lightweight e-commerce storefront with cart, checkout flow and an admin dashboard for inventory.',
-                'image' => asset('images/projects/shoplite.svg'),
-                'github' => 'https://github.com/username/shoplite',
+                'title' => 'Student Management System (Python)',
+                'slug' => 'student-management-python',
+                'description' => 'A Python program that manages student records using a dictionary. It supports adding, viewing, editing, deleting and searching students by ID or name, running in a loop until the user exits — an interactive way to organize student information.',
+                'image' => asset('images/projects/student-management-python.png'),
+                'github' => '#',
                 'demo' => '#',
-                'tags' => ['Vue 3', 'Pinia', 'Tailwind CSS'],
-                'category' => 'apps',
+                'tags' => ['Python', 'CRUD'],
+                'category' => 'school',
             ],
             [
-                'title' => 'DevBlog API',
-                'slug' => 'devblog-api',
-                'description' => 'A RESTful blogging API with token authentication, rate limiting and full OpenAPI documentation.',
-                'image' => asset('images/projects/devblog-api.svg'),
-                'github' => 'https://github.com/username/devblog-api',
+                'title' => 'Student Management System (C#)',
+                'slug' => 'student-management-csharp',
+                'description' => 'A Visual Studio C# application for efficiently managing student information such as names, courses and year levels, with add, view, edit, delete and search functions for organizing academic data.',
+                'image' => asset('images/projects/student-management-csharp.png'),
+                'github' => '#',
                 'demo' => '#',
-                'tags' => ['PHP 8', 'Laravel', 'REST'],
-                'category' => 'apis',
+                'tags' => ['C#', '.NET', 'Visual Studio'],
+                'category' => 'school',
             ],
             [
-                'title' => 'WeatherNow',
-                'slug' => 'weathernow',
-                'description' => 'A weather dashboard with animated forecasts, geolocation search and historical trend charts.',
-                'image' => asset('images/projects/weathernow.svg'),
-                'github' => 'https://github.com/username/weathernow',
+                'title' => 'Student & Teacher Management System (C++)',
+                'slug' => 'student-teacher-management-cpp',
+                'description' => 'A menu-driven C++ program that handles basic record management for both students and teachers using arrays. Users can add, view, edit, delete and search records, navigating between student and teacher modules or exiting cleanly.',
+                'image' => asset('images/projects/student-teacher-management-cpp.png'),
+                'github' => '#',
                 'demo' => '#',
-                'tags' => ['JavaScript', 'Chart.js', 'OpenWeather API'],
-                'category' => 'apps',
+                'tags' => ['C++', 'Record Management'],
+                'category' => 'school',
             ],
             [
-                'title' => 'Snipr',
-                'slug' => 'snipr',
-                'description' => 'A command-line snippet manager that syncs reusable code blocks across machines via Git.',
-                'image' => asset('images/projects/snipr.svg'),
-                'github' => 'https://github.com/username/snipr',
-                'demo' => '#',
-                'tags' => ['Node.js', 'CLI', 'SQLite'],
-                'category' => 'oss',
+                'title' => 'Personal Portfolio Website',
+                'slug' => 'personal-portfolio-website',
+                'description' => 'Responsive portfolio website built with modern web technologies. Features dark/light mode, smooth animations, a photo gallery slider and a mobile-first design approach.',
+                'image' => asset('images/projects/portfolio-website.png'),
+                'github' => 'https://rucielmaeobias2105.github.io/',
+                'demo' => 'https://rucielmaeobias2105.github.io/',
+                'tags' => ['HTML', 'CSS', 'JavaScript'],
+                'category' => 'web',
             ],
             [
-                'title' => 'Portfolio Starter',
-                'slug' => 'portfolio-starter',
-                'description' => 'This very website: a single-page portfolio template built with Laravel Blade, Vite and Tailwind CSS.',
-                'image' => asset('images/projects/portfolio-starter.svg'),
-                'github' => 'https://github.com/username/portfolio-starter',
+                'title' => 'Database Management System (MS Access)',
+                'slug' => 'database-management-ms-access',
+                'description' => 'An MS Access database that organizes, stores and manages student and teacher information using structured tables, queries, forms and reports — simplifying academic record management for schools.',
+                'image' => asset('images/projects/database-management.png'),
+                'github' => '#',
                 'demo' => '#',
-                'tags' => ['Blade', 'Tailwind CSS', 'Vite'],
-                'category' => 'oss',
+                'tags' => ['MS Access', 'SQL'],
+                'category' => 'database',
             ],
         ];
     }
@@ -219,9 +253,9 @@ class PortfolioController extends Controller
     {
         return [
             'all' => 'All',
-            'apps' => 'Web Apps',
-            'apis' => 'APIs & Backends',
-            'oss' => 'Open Source',
+            'school' => 'School Projects',
+            'web' => 'Web',
+            'database' => 'Databases',
         ];
     }
 }

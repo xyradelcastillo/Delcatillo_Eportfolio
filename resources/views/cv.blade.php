@@ -80,7 +80,7 @@
                 @if (!empty($profile['phone']))<span>{{ $profile['phone'] }}</span>@endif
                 <span>{{ $profile['location'] }}</span>
                 <span><a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer">{{ str_replace(['https://', 'http://'], '', $profile['github']) }}</a></span>
-                <span><a href="{{ $profile['linkedin'] }}" target="_blank" rel="noopener noreferrer">{{ str_replace(['https://', 'http://'], '', $profile['linkedin']) }}</a></span>
+                @if (!empty($profile['linkedin']))<span><a href="{{ $profile['linkedin'] }}" target="_blank" rel="noopener noreferrer">{{ str_replace(['https://', 'http://'], '', $profile['linkedin']) }}</a></span>@endif
             </p>
         </header>
 
@@ -97,7 +97,7 @@
         </section>
 
         <section>
-            <h2>Education &amp; Certifications</h2>
+            <h2>Education</h2>
             @foreach ($education as $entry)
                 <div class="entry">
                     <h3>{{ $entry['degree'] }}</h3>
@@ -110,11 +110,26 @@
         </section>
 
         <section>
+            <h2>Certificates &amp; Achievements</h2>
+            @foreach ($certificates as $certificate)
+                <div class="entry">
+                    <h3>{{ $certificate['title'] }}</h3>
+                    <p class="meta">{{ $certificate['issuer'] }} &middot; {{ $certificate['period'] }}</p>
+                    @if (!empty($certificate['description']))
+                        <p class="desc">{{ $certificate['description'] }}</p>
+                    @endif
+                </div>
+            @endforeach
+        </section>
+
+        <section>
             <h2>Selected Projects</h2>
             @foreach ($projects as $project)
                 <div class="entry">
                     <h3>{{ $project['title'] }}
-                        <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="{{ $project['github'] }}" target="_blank" rel="noopener noreferrer">{{ str_replace(['https://', 'http://'], '', $project['github']) }}</a></span>
+                        @if ($project['github'] !== '#')
+                            <span style="font-weight:400;color:#71717a">&nbsp;&mdash;&nbsp;<a href="{{ $project['github'] }}" target="_blank" rel="noopener noreferrer">{{ str_replace(['https://', 'http://'], '', $project['github']) }}</a></span>
+                        @endif
                     </h3>
                     <p class="meta">{{ implode(', ', $project['tags']) }}</p>
                     <p class="desc">{{ $project['description'] }}</p>

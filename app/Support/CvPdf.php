@@ -73,7 +73,7 @@ class CvPdf
         }
         $this->y -= 6;
 
-        $this->section('Education & Certifications');
+        $this->section('Education');
         foreach ($data['education'] as $entry) {
             $meta = trim(sprintf('%s · %s · %s', $entry['institution'], $entry['field'], $entry['period']), ' ·');
 
@@ -85,6 +85,27 @@ class CvPdf
 
             if (!empty($entry['description'])) {
                 foreach ($this->wrap($entry['description'], 10, 'F1') as $line) {
+                    $this->ensureSpace();
+                    $this->text(self::MARGIN + 10, $this->y, 10, 'F1', $line);
+                    $this->y -= 14;
+                }
+            }
+            $this->y -= 8;
+        }
+        $this->y -= 4;
+
+        $this->section('Certificates & Achievements');
+        foreach ($data['certificates'] ?? [] as $certificate) {
+            $meta = trim(sprintf('%s · %s', $certificate['issuer'], $certificate['period']), ' ·');
+
+            $this->ensureSpace(46);
+            $this->text(self::MARGIN, $this->y, 11, 'F2', $certificate['title']);
+            $this->y -= 13.5;
+            $this->grayText(self::MARGIN, $this->y, 9.5, 'F3', $meta);
+            $this->y -= 13;
+
+            if (!empty($certificate['description'])) {
+                foreach ($this->wrap($certificate['description'], 10, 'F1') as $line) {
                     $this->ensureSpace();
                     $this->text(self::MARGIN + 10, $this->y, 10, 'F1', $line);
                     $this->y -= 14;

@@ -8,10 +8,12 @@
 
     <div class="container-site grid items-center gap-14 lg:grid-cols-12">
         <div class="lg:col-span-7">
-            <p class="reveal inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
-                <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-500"></span>
-                {{ $profile['availability'] }}
-            </p>
+            @if (!empty($profile['availability']))
+                <p class="reveal inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-700 dark:text-emerald-400">
+                    <span class="h-2 w-2 animate-pulse rounded-full bg-emerald-500"></span>
+                    {{ $profile['availability'] }}
+                </p>
+            @endif
 
             <h1 class="reveal mt-6 font-display text-4xl font-bold leading-tight tracking-tight text-zinc-900 dark:text-white sm:text-5xl lg:text-6xl" style="transition-delay: 80ms">
                 Hi, I&rsquo;m {{ $profile['name'] }}.
@@ -28,25 +30,33 @@
                     <x-icon name="arrow-down" class="h-4 w-4" />
                 </a>
                 <a href="#contact" class="btn btn-secondary">Get in touch</a>
+                @if (!empty($profile['resume']))
+                    <a href="{{ $profile['resume'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <x-icon name="download" class="h-4 w-4" />
+                        Download resume
+                    </a>
+                @endif
             </div>
 
             <div class="reveal mt-8 flex items-center gap-3" style="transition-delay: 320ms">
-                <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
+                 <!--  <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
                    aria-label="GitHub profile" title="GitHub">
                     <x-icon name="github" />
                 </a>
-                <a href="{{ $profile['linkedin'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
-                   aria-label="LinkedIn profile" title="LinkedIn">
-                    <x-icon name="linkedin" />
-                </a>
+                @foreach ($profile['socials'] as $social)
+                    <a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
+                       aria-label="{{ $social['label'] }} profile" title="{{ $social['label'] }}">
+                        <x-icon name="{{ $social['icon'] }}" />
+                    </a>
+                @endforeach
                 <a href="mailto:{{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
                     <x-icon name="mail" />
                 </a>
                 @if (!empty($profile['phone']))
-                    <a href="tel:{{ preg_replace('/[^+\d]/', '', $profile['phone']) }}" class="icon-btn"
+                 <a href="tel:{{ preg_replace('/[^+\d]/', '', $profile['phone']) }}" class="icon-btn"
                        aria-label="Call me" title="Phone">
                         <x-icon name="phone" />
-                    </a>
+                    </a> -->
                 @endif
                 <span class="ml-1 hidden items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 sm:inline-flex">
                     <x-icon name="map-pin" class="h-4 w-4" /> {{ $profile['location'] }}

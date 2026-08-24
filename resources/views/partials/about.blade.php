@@ -30,7 +30,7 @@
                 </div>
 
                 {{-- Quick stats --}}
-                <div class="reveal mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3" style="transition-delay: 120ms">
+                <div class="reveal mt-10 grid grid-cols-2 gap-4" style="transition-delay: 120ms">
                     @foreach ($stats as $stat)
                         <div class="card px-6 py-7 text-center hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-md dark:hover:border-indigo-400/40">
                             <p class="font-display text-3xl font-bold text-indigo-600 dark:text-indigo-400">{{ $stat['value'] }}</p>
@@ -39,28 +39,15 @@
                     @endforeach
                 </div>
 
-                <div class="reveal mt-8 flex flex-wrap gap-4" style="transition-delay: 200ms">
+                <div class="reveal mt-8 flex flex-wrap items-center gap-4" style="transition-delay: 200ms">
                     <a href="#contact" class="btn btn-primary">Contact me</a>
                     <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <x-icon name="github" class="h-4 w-4" />
                         GitHub profile
                     </a>
-                </div>
-
-                {{-- CV actions: view in browser, print, or download as PDF --}}
-                <div class="reveal mt-4 flex flex-wrap items-center gap-3" style="transition-delay: 260ms">
-                    <span class="eyebrow">CV</span>
-                    <a href="{{ route('cv') }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
-                       aria-label="View CV in a new tab" title="View CV">
-                        <x-icon name="eye" />
-                    </a>
-                    <a href="{{ route('cv', ['print' => 1]) }}" class="icon-btn"
-                       aria-label="Print CV" title="Print CV">
-                        <x-icon name="printer" />
-                    </a>
-                    <a href="{{ route('cv.download') }}" class="btn btn-secondary !px-4 !py-2 text-xs">
+                    <a href="{{ $profile['resume'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <x-icon name="download" class="h-4 w-4" />
-                        Download PDF
+                        Download Resume
                     </a>
                 </div>
             </div>
