@@ -99,6 +99,9 @@
 
     var navLinks = document.querySelectorAll('[data-navlink]');
     if ('IntersectionObserver' in window && navLinks.length) {
+        // Per-section browser-tab titles: "<Section> | <Site name>".
+        var baseTitle = document.title;
+        var siteName = baseTitle.includes('|') ? baseTitle.split('|').pop().trim() : '';
         var linkFor = function (id) {
             return document.querySelector('[data-navlink][href="#' + id + '"]');
         };
@@ -110,7 +113,11 @@
                         link.removeAttribute('aria-current');
                     });
                     var link = linkFor(entry.target.id);
-                    if (link) link.setAttribute('aria-current', 'true');
+                    if (link) {
+                        link.setAttribute('aria-current', 'true');
+                        var label = link.textContent.trim();
+                        document.title = siteName ? label + ' | ' + siteName : label;
+                    }
                 });
             },
             { rootMargin: '-40% 0px -55% 0px' }

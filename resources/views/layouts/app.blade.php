@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{-- EDIT: page title and meta description --}}
-    <title>@yield('title', $profile['name'].' — '.$profile['role'])</title>
+    {{-- EDIT: page titles follow the "Page | Site name" pattern.
+         Each view (or the scroll-spy in app.js, per section) can override the
+         page part via @section('title', '...'). --}}
+    <title>@yield('title', 'Home') | {{ $profile['name'] }}</title>
     <meta name="description" content="@yield('meta_description', $profile['bio_short'])">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#09090b">
 
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    {{-- EDIT: swap public/images/c_logo.png to change the browser-tab icon --}}
+    <link rel="icon" type="image/png" href="{{ asset('images/c_logo.png') }}">
 
     {{-- Theme init: runs BEFORE first paint so there is no flash of the wrong theme.
          Reads the saved preference from localStorage, falls back to the OS setting.

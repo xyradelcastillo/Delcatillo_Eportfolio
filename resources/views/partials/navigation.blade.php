@@ -6,9 +6,9 @@
             {{ $profile['initials'] }}<span class="text-indigo-600 dark:text-indigo-400">.</span>
         </a>
 
-        {{-- Desktop anchor links --}}
+        {{-- Desktop anchor links (labels double as browser-tab titles per section) --}}
         <div class="hidden items-center gap-1 md:flex">
-            @foreach (['About' => '#about', 'Education' => '#education', 'Projects' => '#projects', 'Contact' => '#contact'] as $label => $href)
+            @foreach (['Home' => '#home', 'About' => '#about', 'Education' => '#education', 'Projects' => '#projects', 'Contact' => '#contact'] as $label => $href)
                 <a href="{{ $href }}" data-navlink
                    class="rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/70 dark:hover:text-white">
                     {{ $label }}

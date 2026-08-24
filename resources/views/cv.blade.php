@@ -11,7 +11,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $profile['name'] }} — CV</title>
+    <title>CV | {{ $profile['name'] }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/c_logo.png') }}">
     <style>
         :root { --accent: #4f46e5; --ink: #18181b; --muted: #52525b; --line: #e4e4e7; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
