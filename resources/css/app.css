@@ -180,17 +180,19 @@
     .swatch-amber { background: #f59e0b; }
     .swatch-sky { background: #0ea5e9; }
 
+    /* Selected palette: white check drawn inside its colored circle. */
     [data-accent-choice][aria-checked='true'] {
         @apply bg-zinc-100 dark:bg-zinc-800;
     }
 
     [data-accent-choice][aria-checked='true'] .check {
         opacity: 1;
-        color: rgb(var(--accent-600));
+        transform: scale(1);
+        filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.35));
     }
 
-    .dark [data-accent-choice][aria-checked='true'] .check {
-        color: rgb(var(--accent-400));
+    [data-accent-choice] .check {
+        transform: scale(0.4);
     }
 
     /* Navbar surface once the page is scrolled (toggled from app.js). */

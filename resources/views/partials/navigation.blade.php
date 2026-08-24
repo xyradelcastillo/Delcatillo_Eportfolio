@@ -31,9 +31,10 @@
                     @foreach (['indigo', 'violet', 'emerald', 'rose', 'amber', 'sky'] as $key)
                         <button type="button" data-accent-choice="{{ $key }}" role="radio" aria-checked="{{ $key === 'indigo' ? 'true' : 'false' }}"
                                 class="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium capitalize text-zinc-700 transition hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800">
-                            <span class="swatch swatch-{{ $key }} h-4 w-4 shrink-0 rounded-full shadow-sm ring-2 ring-white/80 dark:ring-zinc-800"></span>
+                            <span class="swatch swatch-{{ $key }} relative flex h-5 w-5 shrink-0 items-center justify-center rounded-full shadow-sm ring-2 ring-white/80 dark:ring-zinc-800">
+                                <x-icon name="check" class="check h-3 w-3 text-white opacity-0 transition" />
+                            </span>
                             {{ $key }}
-                            <x-icon name="check" class="check ml-auto h-4 w-4 opacity-0 transition" />
                         </button>
                     @endforeach
                 </div>
