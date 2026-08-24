@@ -13,7 +13,8 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
     {{-- Theme init: runs BEFORE first paint so there is no flash of the wrong theme.
-         Reads the saved preference from localStorage, falls back to the OS setting. --}}
+         Reads the saved preference from localStorage, falls back to the OS setting.
+         Also restores the accent-color choice (data-accent on <html>). --}}
     <script>
         (function () {
             try {
@@ -22,6 +23,12 @@
                     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                 }
                 document.documentElement.classList.toggle('dark', theme === 'dark');
+
+                var accents = ['indigo', 'violet', 'emerald', 'rose', 'amber', 'sky'];
+                var accent = localStorage.getItem('accent');
+                if (accents.indexOf(accent) !== -1) {
+                    document.documentElement.setAttribute('data-accent', accent);
+                }
             } catch (e) { /* no-op */ }
         })();
     </script>

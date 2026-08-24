@@ -7,6 +7,95 @@
 @tailwind utilities;
 
 @layer base {
+    /* ---- Accent color themes -------------------------------------------------
+       RGB triplets consumed by tailwind.config.js. The default (:root) is
+       indigo; each [data-accent] block below swaps the whole ramp. In dark
+       mode the "600" tone is lifted to the brighter 500 value so contrast
+       stays comfortable on near-black surfaces. */
+    :root {
+        --accent-600: 79 70 229;   /* deep   */
+        --accent-500: 99 102 241;  /* main   */
+        --accent-400: 129 140 248; /* bright */
+        --accent-wash: 238 242 255;
+    }
+
+    .dark {
+        --accent-600: 99 102 241;
+        --accent-500: 129 140 248;
+        --accent-400: 165 180 252;
+        --accent-wash: 99 102 241;
+    }
+
+    [data-accent='violet'] {
+        --accent-600: 124 58 237;
+        --accent-500: 139 92 246;
+        --accent-400: 167 139 250;
+        --accent-wash: 245 243 255;
+    }
+
+    .dark[data-accent='violet'] {
+        --accent-600: 139 92 246;
+        --accent-500: 167 139 250;
+        --accent-400: 196 181 253;
+        --accent-wash: 139 92 246;
+    }
+
+    [data-accent='emerald'] {
+        --accent-600: 5 150 105;
+        --accent-500: 16 185 129;
+        --accent-400: 52 211 153;
+        --accent-wash: 236 253 245;
+    }
+
+    .dark[data-accent='emerald'] {
+        --accent-600: 16 185 129;
+        --accent-500: 52 211 153;
+        --accent-400: 110 231 183;
+        --accent-wash: 16 185 129;
+    }
+
+    [data-accent='rose'] {
+        --accent-600: 225 29 72;
+        --accent-500: 244 63 94;
+        --accent-400: 251 113 133;
+        --accent-wash: 255 241 242;
+    }
+
+    .dark[data-accent='rose'] {
+        --accent-600: 244 63 94;
+        --accent-500: 251 113 133;
+        --accent-400: 253 164 175;
+        --accent-wash: 244 63 94;
+    }
+
+    [data-accent='amber'] {
+        --accent-600: 202 138 4;
+        --accent-500: 245 158 11;
+        --accent-400: 251 191 36;
+        --accent-wash: 254 249 195;
+    }
+
+    .dark[data-accent='amber'] {
+        --accent-600: 217 119 6;
+        --accent-500: 251 191 36;
+        --accent-400: 253 224 71;
+        --accent-wash: 217 119 6;
+    }
+
+    [data-accent='sky'] {
+        --accent-600: 2 132 199;
+        --accent-500: 14 165 233;
+        --accent-400: 56 189 248;
+        --accent-wash: 240 249 255;
+    }
+
+    .dark[data-accent='sky'] {
+        --accent-600: 14 165 233;
+        --accent-500: 56 189 248;
+        --accent-400: 125 211 252;
+        --accent-wash: 14 165 233;
+    }
+
     html {
         scroll-behavior: smooth;
         /* Keep anchor targets clear of the fixed navbar. */
@@ -83,6 +172,27 @@
 }
 
 @layer utilities {
+    /* Accent-color picker swatches (fixed colors, independent of active theme). */
+    .swatch-indigo { background: #6366f1; }
+    .swatch-violet { background: #8b5cf6; }
+    .swatch-emerald { background: #10b981; }
+    .swatch-rose { background: #f43f5e; }
+    .swatch-amber { background: #f59e0b; }
+    .swatch-sky { background: #0ea5e9; }
+
+    [data-accent-choice][aria-checked='true'] {
+        @apply bg-zinc-100 dark:bg-zinc-800;
+    }
+
+    [data-accent-choice][aria-checked='true'] .check {
+        opacity: 1;
+        color: rgb(var(--accent-600));
+    }
+
+    .dark [data-accent-choice][aria-checked='true'] .check {
+        color: rgb(var(--accent-400));
+    }
+
     /* Navbar surface once the page is scrolled (toggled from app.js). */
     #navbar.is-scrolled {
         @apply border-b border-zinc-200/80 shadow-sm backdrop-blur-md dark:border-zinc-800/80;

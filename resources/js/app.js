@@ -24,6 +24,49 @@
         });
     }
 
+    /* 1b. Accent color picker */
+    var accentToggle = document.getElementById('accent-toggle');
+    var accentMenu = document.getElementById('accent-menu');
+    if (accentToggle && accentMenu) {
+        var setAccentMenu = function (open) {
+            accentToggle.setAttribute('aria-expanded', String(open));
+            // The menu animates in/out; `invisible` fully removes it once closed.
+            accentMenu.classList.toggle('invisible', !open);
+            accentMenu.classList.toggle('opacity-0', !open);
+            accentMenu.classList.toggle('translate-y-1', !open);
+            accentMenu.classList.toggle('scale-95', !open);
+        };
+        var menuOpen = function () {
+            return !accentMenu.classList.contains('invisible');
+        };
+        accentToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setAccentMenu(!menuOpen());
+        });
+        document.addEventListener('click', function (e) {
+            if (menuOpen() && !accentMenu.contains(e.target)) setAccentMenu(false);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && menuOpen()) {
+                setAccentMenu(false);
+                accentToggle.focus();
+            }
+        });
+        accentMenu.querySelectorAll('[data-accent-choice]').forEach(function (choice) {
+            choice.addEventListener('click', function () {
+                var value = choice.getAttribute('data-accent-choice');
+                doc.setAttribute('data-accent', value);
+                try {
+                    localStorage.setItem('accent', value);
+                } catch (err) { /* storage unavailable */ }
+                accentMenu.querySelectorAll('[data-accent-choice]').forEach(function (c) {
+                    c.setAttribute('aria-checked', String(c === choice));
+                });
+                setAccentMenu(false);
+            });
+        });
+    }
+
     /* 2. Mobile navigation */
     var menuToggle = document.getElementById('menu-toggle');
     var mobileMenu = document.getElementById('mobile-menu');

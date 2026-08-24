@@ -16,8 +16,29 @@
             @endforeach
         </div>
 
-        {{-- Right side: theme toggle (visible on all screen sizes) + hamburger --}}
+        {{-- Right side: accent-color picker + theme toggle (both always visible) + hamburger --}}
         <div class="flex items-center gap-2">
+            {{-- Accent color picker --}}
+            <div class="relative">
+                <button type="button" id="accent-toggle"
+                        class="icon-btn !border-transparent hover:!border-indigo-500 dark:hover:!border-indigo-400"
+                        aria-label="Change accent color" title="Change accent color" aria-expanded="false" aria-controls="accent-menu">
+                    <x-icon name="palette" />
+                </button>
+
+                <div id="accent-menu" role="radiogroup" aria-label="Accent color"
+                     class="invisible absolute right-0 top-full z-50 mt-2 w-44 translate-y-1 scale-95 opacity-0 rounded-2xl border border-zinc-200 bg-white p-2 shadow-lg transition duration-200 dark:border-zinc-700 dark:bg-zinc-900">
+                    @foreach (['indigo', 'violet', 'emerald', 'rose', 'amber', 'sky'] as $key)
+                        <button type="button" data-accent-choice="{{ $key }}" role="radio" aria-checked="{{ $key === 'indigo' ? 'true' : 'false' }}"
+                                class="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium capitalize text-zinc-700 transition hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800">
+                            <span class="swatch swatch-{{ $key }} h-4 w-4 shrink-0 rounded-full shadow-sm ring-2 ring-white/80 dark:ring-zinc-800"></span>
+                            {{ $key }}
+                            <x-icon name="check" class="check ml-auto h-4 w-4 opacity-0 transition" />
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+
             <button type="button" id="theme-toggle" class="icon-btn !border-transparent hover:!border-indigo-500 dark:hover:!border-indigo-400"
                     aria-label="Toggle dark mode" title="Toggle dark mode">
                 <x-icon name="sun" class="h-5 w-5 dark:hidden" />
