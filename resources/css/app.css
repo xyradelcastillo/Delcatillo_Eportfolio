@@ -1,9 +1,116 @@
-@import 'tailwindcss';
+/* Self-hosted fonts (no external requests at runtime). */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        /* Keep anchor targets clear of the fixed navbar. */
+        scroll-padding-top: 5.5rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    body {
+        @apply bg-white font-sans text-zinc-600 antialiased dark:bg-zinc-950 dark:text-zinc-400;
+    }
+
+    ::selection {
+        @apply bg-indigo-500/25 text-zinc-900 dark:text-zinc-100;
+    }
+}
+
+@layer components {
+    .container-site {
+        @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .section {
+        @apply py-20 sm:py-24 lg:py-28;
+    }
+
+    .eyebrow {
+        @apply text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600 dark:text-indigo-400;
+    }
+
+    .heading-xl {
+        @apply mt-3 font-display text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl;
+    }
+
+    .lead {
+        @apply mt-4 text-base leading-relaxed sm:text-lg;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500;
+    }
+
+    .btn-primary {
+        @apply bg-indigo-600 text-white shadow-sm hover:-translate-y-0.5 hover:bg-indigo-500 hover:shadow-md active:translate-y-0 dark:bg-indigo-500 dark:hover:bg-indigo-400;
+    }
+
+    .btn-secondary {
+        @apply border border-zinc-300 text-zinc-700 hover:-translate-y-0.5 hover:border-zinc-400 hover:bg-zinc-100 active:translate-y-0 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-zinc-500 dark:hover:bg-zinc-800/60;
+    }
+
+    .icon-btn {
+        @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-zinc-300 text-zinc-500 transition duration-200 hover:-translate-y-0.5 hover:border-indigo-500 hover:text-indigo-600 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-indigo-400 dark:hover:text-indigo-400;
+    }
+
+    .card {
+        @apply rounded-2xl border border-zinc-200 bg-white shadow-sm transition duration-300 dark:border-zinc-800 dark:bg-zinc-900;
+    }
+
+    .chip {
+        @apply inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300;
+    }
+
+    .filter-btn {
+        @apply cursor-pointer select-none rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider text-zinc-500 ring-1 ring-inset ring-zinc-300 transition hover:text-zinc-800 dark:text-zinc-400 dark:ring-zinc-700 dark:hover:text-zinc-200;
+    }
+
+    .filter-btn[aria-pressed='true'] {
+        @apply bg-indigo-600 text-white ring-inset ring-indigo-600 hover:text-white dark:bg-indigo-500 dark:ring-indigo-500 dark:hover:text-white;
+    }
+}
+
+@layer utilities {
+    /* Navbar surface once the page is scrolled (toggled from app.js). */
+    #navbar.is-scrolled {
+        @apply border-b border-zinc-200/80 shadow-sm backdrop-blur-md dark:border-zinc-800/80;
+    }
+
+    [data-navlink][aria-current='true'] {
+        @apply bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-400;
+    }
+}
+
+/* Scroll-reveal animation (elements start hidden, JS reveals on intersect). */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
