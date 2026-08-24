@@ -14,3 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
+
+// Printable / downloadable CV (generated from the same content arrays).
+Route::get('/cv', [PortfolioController::class, 'cv'])->name('cv');
+Route::get('/cv/download', [PortfolioController::class, 'downloadCv'])->name('cv.download');

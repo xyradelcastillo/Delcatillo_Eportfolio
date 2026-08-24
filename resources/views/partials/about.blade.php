@@ -46,6 +46,23 @@
                         GitHub profile
                     </a>
                 </div>
+
+                {{-- CV actions: view in browser, print, or download as PDF --}}
+                <div class="reveal mt-4 flex flex-wrap items-center gap-3" style="transition-delay: 260ms">
+                    <span class="eyebrow">CV</span>
+                    <a href="{{ route('cv') }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
+                       aria-label="View CV in a new tab" title="View CV">
+                        <x-icon name="eye" />
+                    </a>
+                    <a href="{{ route('cv', ['print' => 1]) }}" class="icon-btn"
+                       aria-label="Print CV" title="Print CV">
+                        <x-icon name="printer" />
+                    </a>
+                    <a href="{{ route('cv.download') }}" class="btn btn-secondary !px-4 !py-2 text-xs">
+                        <x-icon name="download" class="h-4 w-4" />
+                        Download PDF
+                    </a>
+                </div>
             </div>
         </div>
     </div>

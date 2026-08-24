@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\CvPdf;
+use Illuminate\Support\Str;
+
 class PortfolioController extends Controller
 {
     /* ======================================================================
@@ -22,6 +25,42 @@ class PortfolioController extends Controller
             'projects' => $this->projects(),
             'projectFilters' => $this->projectFilters(),
         ]);
+    }
+
+    /**
+     * Standalone printable CV view (browser-friendly, print-optimized).
+     * Append ?print=1 to auto-open the browser's print dialog.
+     */
+    public function cv()
+    {
+        return view('cv', $this->sharedContent());
+    }
+
+    /**
+     * Generate and download the CV as a PDF (built from the same data,
+     * no external PDF library required).
+     */
+    public function downloadCv()
+    {
+        $pdf = (new CvPdf())->generate($this->sharedContent());
+
+        return response($pdf)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="'.Str::slug($this->profile()['name']).'-cv.pdf"');
+    }
+
+    /**
+     * Content shared between the portfolio page and the CV views.
+     */
+    private function sharedContent(): array
+    {
+        return [
+            'profile' => $this->profile(),
+            'stats' => $this->stats(),
+            'education' => $this->education(),
+            'projects' => $this->projects(),
+            'generated' => now()->format('F Y'),
+        ];
     }
 
     /**

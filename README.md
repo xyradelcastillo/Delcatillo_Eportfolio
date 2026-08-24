@@ -72,11 +72,31 @@ Each entry needs `title`, `slug`, `description`, `image`, `github`, `demo`, `tag
 | `resources/css/app.css` | Tailwind layers + shared component classes |
 | `tailwind.config.js` | Tailwind config — `darkMode: 'class'`, font families |
 
-## Dark / light mode
+## Dark / light & accent colors
 
-The theme is resolved **before first paint** by an inline `<script>` in `<head>`: it reads
-`localStorage.theme` and falls back to the OS `prefers-color-scheme`. Toggling flips the
-`dark` class on `<html>` (Tailwind is configured with `darkMode: 'class'`) and persists the choice.
+- **Dark/light mode**: resolved **before first paint** by an inline `<script>` in `<head>` —
+  reads `localStorage.theme`, falls back to OS `prefers-color-scheme`. Toggling flips the
+  `dark` class on `<html>` (`darkMode: 'class'`) and persists.
+- **Accent color**: the palette button in the navbar opens a swatch picker (indigo, violet,
+  emerald, rose, amber, sky). All UI colors are driven by CSS variables (`--accent-*`) that
+  Tailwind's config maps onto its `indigo` scale, so every component recolors instantly.
+  The choice persists in `localStorage.accent` and is restored before first paint.
+  Add a new palette by adding a `[data-accent='name']` block in `resources/css/app.css`
+  and registering it in the init script + nav swatch list.
+
+## CV (view / print / download)
+
+The About section exposes three actions:
+
+| Button | Behavior |
+| --- | --- |
+| **View** (eye) | Opens `/cv` — a standalone, print-styled CV page |
+| **Print** (printer) | Opens `/cv?print=1`, which auto-launches the print dialog |
+| **Download PDF** | GET `/cv/download` — generates a real PDF from your content on the fly |
+
+The PDF is produced by a tiny dependency-free generator (`app/Support/CvPdf.php`) using
+core Helvetica fonts — no external PDF library needed. Both the page and the PDF render
+from the same content arrays, so editing `PortfolioController.php` updates everything.
 
 ## Notes
 
