@@ -38,6 +38,14 @@ class PortfolioController extends Controller
     }
 
     /**
+     * Resume viewer — displays the PDF with Download + Print toolbar.
+     */
+    public function resume()
+    {
+        return view('resume', $this->sharedContent());
+    }
+
+    /**
      * Generate and download the CV as a PDF (built from the same data,
      * no external PDF library required).
      */
@@ -94,7 +102,7 @@ class PortfolioController extends Controller
                 ['icon' => 'telegram', 'label' => 'Telegram', 'url' => 'https://t.me/+639558270251'],
                 ['icon' => 'discord', 'label' => 'Discord', 'url' => 'https://discord.com/users/1449760710807785567'],
             ],
-            'resume' => asset('files/My Resume.pdf'),
+            'resume' => route('resume'),
             'avatar' => asset('images/xyra.jpg'),
         ];
     }
