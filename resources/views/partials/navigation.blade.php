@@ -11,7 +11,7 @@
             @foreach (['Home' => '#home', 'About' => '#about', 'Education' => '#education', 'Projects' => '#projects', 'Contact' => '#contact'] as $label => $href)
                 <a href="{{ $href }}" data-navlink
                    class="rounded-full px-4 py-2 text-sm font-medium text-zinc-600 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/70 dark:hover:text-white">
-                    {{ $label }}
+                    <i class="fa-solid fa-{{ match($label) { 'Home' => 'house', 'About' => 'user', 'Education' => 'graduation-cap', 'Projects' => 'briefcase', 'Contact' => 'envelope' } }} mr-1 text-xs"></i>{{ $label }}
                 </a>
             @endforeach
         </div>
@@ -61,7 +61,7 @@
             @foreach (['About' => '#about', 'Education' => '#education', 'Projects' => '#projects', 'Contact' => '#contact'] as $label => $href)
                 <a href="{{ $href }}" data-navlink-mobile
                    class="rounded-lg px-4 py-3 text-base font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800/70 dark:hover:text-white">
-                    {{ $label }}
+                    <i class="fa-solid fa-{{ match($label) { 'About' => 'user', 'Education' => 'graduation-cap', 'Projects' => 'briefcase', 'Contact' => 'envelope' } }} mr-2 text-sm"></i>{{ $label }}
                 </a>
             @endforeach
         </div>
