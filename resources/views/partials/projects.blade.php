@@ -30,17 +30,17 @@
                         @if ($project['demo'] !== '#' || $project['github'] !== '#')
                             <a href="{{ $project['demo'] !== '#' ? $project['demo'] : $project['github'] }}"
                                target="_blank" rel="noopener noreferrer"
-                               class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800"
+                               class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800 p-2"
                                tabindex="-1" aria-hidden="true">
                                 <img src="{{ $project['image'] }}" alt="Screenshot of {{ $project['title'] }}" loading="lazy"
                                      width="1200" height="750"
-                                     class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                                     class="h-full w-full object-contain transition duration-500 group-hover:scale-105">
                             </a>
                         @else
-                            <div class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                            <div class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800 p-2">
                                 <img src="{{ $project['image'] }}" alt="Screenshot of {{ $project['title'] }}" loading="lazy"
                                      width="1200" height="750"
-                                     class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                                     class="h-full w-full object-contain transition duration-500 group-hover:scale-105">
                             </div>
                         @endif
                     @else

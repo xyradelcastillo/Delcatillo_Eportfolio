@@ -208,7 +208,7 @@ class PortfolioController extends Controller
                 'title' => 'Personal Portfolio Website',
                 'slug' => 'personal-portfolio-website',
                 'description' => 'A responsive portfolio site built with modern web tech, featuring dark/light mode and smooth animations. It includes a photo gallery slider and a mobile-first design.',
-                'image' => asset('images/projects/portfolio-website.png'),
+                'image' => asset('images/projects/e_port.pngthe'),
                 'github' => '#',
                 'demo' => '#',
                 'tags' => [],
