@@ -45,7 +45,7 @@
                         <x-icon name="github" class="h-4 w-4" />
                         GitHub profile
                     </a>
-                    <a href="{{ $profile['resume'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    <a href="{{ $profile['resume'] }}" class="btn btn-secondary">
                       <x-icon name="eye" class="h-4 w-4" />
                         Resume 
                     </a>
