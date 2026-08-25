@@ -85,7 +85,7 @@ class PortfolioController extends Controller
             'phone' => '+63 955 827 0251', // set to null to hide it
             'location' => 'Zone 1, Linasin Bangued Abra',
             'availability' => '', // set a value like 'Available for freelance work' to show the green badge
-            'github' => '',
+            'github' => 'https://github.com/xyradelcastillo',
             'linkedin' => '', // no LinkedIn yet — paste your profile URL here when you have one
             'socials' => [
                 ['icon' => 'facebook', 'label' => 'Facebook', 'url' => 'https://www.facebook.com/agaznog.delcastillo'],
@@ -150,7 +150,7 @@ class PortfolioController extends Controller
                 'issuer' => 'Department of Information and Communications Technology (DICT)',
                 'icon' => 'award',
                 'period' => '2023',
-                'description' => 'National Certificate II in Computer Systems Servicing earned under the senior high school TVL-ICT strand.',
+                'description' => '',
             ],
         
         ];
@@ -167,22 +167,22 @@ class PortfolioController extends Controller
             [
                 'title' => 'Java Enrollment System',
                 'slug' => 'java-enrollment-system',
-                'description' => 'A Java system for IT/CS students that collects student details, displays the correct curriculum, and computes tuition with discounts. It handles down payments and prints a full enrollment summary with balance.',
+                'description' => 'A system for IT/CS students that collects student details, displays the correct curriculum, and computes tuition with discounts. It handles down payments and prints a full enrollment summary with balance.',
                 'image' => asset('images/projects/itcs-enrollment.jpg'), // omit this key to get an auto-generated placeholder tile
                 'github' => '#',
                 'demo' => '#', // live demo URL, or '#'
                 'tags' => [],
-                'category' => 'school',
+                'category' => '',
             ],
             [
                 'title' => 'Student Management System (Python)',
                 'slug' => 'student-management-python',
-                'description' => 'A Python program that manages student records using a dictionary. It supports adding, viewing, editing, deleting and searching students by ID or name, running in a loop until the user exits — an interactive way to organize student information.',
+                'description' => 'A Python program that manages student records via a dictionary, supporting add, view, edit, delete and search by ID or name. It runs in an interactive loop until the user exits.',
                 'image' => asset('images/projects/student-management-python.png'),
                 'github' => '#',
                 'demo' => '#',
                 'tags' => [],
-                'category' => 'school',
+                'category' => '',
             ],
             [
                 'title' => 'Student Management System (C#)',
@@ -191,28 +191,28 @@ class PortfolioController extends Controller
                 'image' => asset('images/projects/student-management-csharp.png'),
                 'github' => '#',
                 'demo' => '#',
-                'tags' => ['C#', '.NET', 'Visual Studio'],
-                'category' => 'school',
+                'tags' => [],
+                'category' => '',
             ],
             [
                 'title' => 'Student & Teacher Management System (C++)',
                 'slug' => 'student-teacher-management-cpp',
-                'description' => 'A menu-driven C++ program that handles basic record management for both students and teachers using arrays. Users can add, view, edit, delete and search records, navigating between student and teacher modules or exiting cleanly.',
+                'description' => 'A menu-driven C++ program for managing student and teacher records using arrays. It supports add, view, edit, delete and search, with easy navigation between modules.',
                 'image' => asset('images/projects/student-teacher-management-cpp.png'),
                 'github' => '#',
                 'demo' => '#',
-                'tags' => ['C++', 'Record Management'],
-                'category' => 'school',
+                'tags' => [],
+                'category' => '',
             ],
             [
                 'title' => 'Personal Portfolio Website',
                 'slug' => 'personal-portfolio-website',
-                'description' => 'Responsive portfolio website built with modern web technologies. Features dark/light mode, smooth animations, a photo gallery slider and a mobile-first design approach.',
+                'description' => 'A responsive portfolio site built with modern web tech, featuring dark/light mode and smooth animations. It includes a photo gallery slider and a mobile-first design.',
                 'image' => asset('images/projects/portfolio-website.png'),
-                'github' => 'https://rucielmaeobias2105.github.io/',
-                'demo' => 'https://rucielmaeobias2105.github.io/',
-                'tags' => ['HTML', 'CSS', 'JavaScript'],
-                'category' => 'web',
+                'github' => '#',
+                'demo' => '#',
+                'tags' => [],
+                'category' => 'school',
             ],
             [
                 'title' => 'Database Management System (MS Access)',
@@ -221,8 +221,8 @@ class PortfolioController extends Controller
                 'image' => asset('images/projects/database-management.png'),
                 'github' => '#',
                 'demo' => '#',
-                'tags' => ['MS Access', 'SQL'],
-                'category' => 'database',
+                'tags' => [],
+                'category' => '',
             ],
         ];
     }
@@ -235,7 +235,7 @@ class PortfolioController extends Controller
     {
         return [
             'all' => 'All',
-            'school' => 'School Projects',
+            'school' => '',
             'web' => 'Web',
             'database' => 'Databases',
         ];

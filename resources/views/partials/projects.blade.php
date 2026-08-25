@@ -60,7 +60,7 @@
                             @if ($project['github'] !== '#')
                                 <a href="{{ $project['github'] }}" target="_blank" rel="noopener noreferrer"
                                    class="shrink-0 rounded-full p-1.5 text-zinc-400 transition hover:-translate-y-0.5 hover:text-indigo-600 dark:text-zinc-500 dark:hover:text-indigo-400"
-                                   aria-label="View {{ $project['title'] }} on GitHub" title="GitHub repository">
+                                   aria-label="View {{ $project['title'] }} on GitHub" title="GitHub repository"> 
                                     <x-icon name="github" class="h-5 w-5" />
                                 </a>
                             @endif
@@ -86,7 +86,7 @@
                                 </a>
                             @else
                                 <span class="inline-flex items-center gap-1.5 text-sm text-zinc-400 dark:text-zinc-500">
-                                    Classroom project — no public link
+                                  <!--  Classroom project — no public link -->
                                 </span>
                             @endif
                             <span class="text-xs font-medium uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
