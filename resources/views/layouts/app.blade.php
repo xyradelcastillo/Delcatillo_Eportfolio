@@ -13,7 +13,7 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#09090b">
 
     {{-- EDIT: swap public/images/c_logo.png to change the browser-tab icon --}}
-    <link rel="icon" type="image/png" href="{{ asset('images/c_logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/x_logo.png') }}">
 
     {{-- Theme init: runs BEFORE first paint so there is no flash of the wrong theme.
          Reads the saved preference from localStorage, falls back to the OS setting.
