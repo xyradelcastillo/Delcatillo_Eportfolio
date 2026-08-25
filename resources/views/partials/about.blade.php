@@ -40,14 +40,14 @@
                 </div>
 
                 <div class="reveal mt-8 flex flex-wrap items-center gap-4" style="transition-delay: 200ms">
-                    <a href="#contact" class="btn btn-primary">Contact me</a>
+                    <a href="#contact" class="btn btn-primary"> <i class="fas fa-envelope"></i>  Contact me</a>
                     <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <x-icon name="github" class="h-4 w-4" />
                         GitHub profile
                     </a>
                     <a href="{{ $profile['resume'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                        <x-icon name="download" class="h-4 w-4" />
-                        Download Resume
+                      <x-icon name="eye" class="h-4 w-4" />
+                        Resume 
                     </a>
                 </div>
             </div>

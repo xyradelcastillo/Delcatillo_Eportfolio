@@ -26,14 +26,15 @@
 
             <div class="reveal mt-8 flex flex-wrap items-center gap-4" style="transition-delay: 240ms">
                 <a href="#projects" class="btn btn-primary">
+                     <x-icon name="arrow-down" class="h-4 w-4" />
                     View my work
-                    <x-icon name="arrow-down" class="h-4 w-4" />
                 </a>
-                <a href="#contact" class="btn btn-secondary">Get in touch</a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get in touch</a>
                 @if (!empty($profile['resume']))
                     <a href="{{ $profile['resume'] }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                        <x-icon name="download" class="h-4 w-4" />
-                        Download resume
+                        <x-icon name="eye" class="h-4 w-4" />
+                        Resume
                     </a>
                 @endif
             </div>
