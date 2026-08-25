@@ -94,7 +94,7 @@ class PortfolioController extends Controller
                 ['icon' => 'telegram', 'label' => 'Telegram', 'url' => 'https://t.me/+639558270251'],
                 ['icon' => 'discord', 'label' => 'Discord', 'url' => 'https://discord.com/users/1449760710807785567'],
             ],
-            'resume' => asset('files/Xyra-G.-Delcastillo-Resume.pdf'),
+            'resume' => asset('files/My Resume.pdf'),
             'avatar' => asset('images/xyra.jpg'),
         ];
     }
@@ -122,7 +122,7 @@ class PortfolioController extends Controller
             // EDIT: add / remove entries freely — newest first looks best.
             [
                 'institution' => 'Data Center College of the Philippines - Bangued',
-                'degree' => 'Bachelor of Science in Computer Science',
+                'degree' => 'Bachelor of Information Technology',
                 'field' => 'Tertiary · 4th Year',
                 'period' => '2023 — Present',
                 'description' => 'Brgy. Ubbog-Lipcan, Bangued, Abra.',
@@ -208,7 +208,7 @@ class PortfolioController extends Controller
                 'title' => 'Personal Portfolio Website',
                 'slug' => 'personal-portfolio-website',
                 'description' => 'A responsive portfolio site built with modern web tech, featuring dark/light mode and smooth animations. It includes a photo gallery slider and a mobile-first design.',
-                'image' => asset('images/projects/e_port.pngthe'),
+                'image' => asset('images/projects/e_port.png'),
                 'github' => '#',
                 'demo' => '#',
                 'tags' => [],
