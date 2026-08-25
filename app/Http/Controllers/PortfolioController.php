@@ -160,6 +160,13 @@ class PortfolioController extends Controller
                 'period' => '2023',
                 'description' => '',
             ],
+              [
+                'title' => 'Online Safety Through Netiquette',
+                'issuer' => 'Department of Information and Communications Technology (DICT)',
+                'icon' => 'award',
+                'period' => '2023',
+                'description' => '',
+            ],
         
         ];
     }
