@@ -5,12 +5,12 @@
         <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <x-section-heading eyebrow="Selected work" title="Projects" />
             <p class="max-w-sm text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                A collection of school and personal projects I&rsquo;ve built while learning
-                different programming languages — from console apps to databases and the web.
+             <!--   A collection of school and personal projects I&rsquo;ve built while learning
+                different programming languages — from console apps to databases and the web. -->
             </p>
         </div>
 
-        {{-- Category filters --}}
+      <!--  {{-- Category filters --}}
         <div class="reveal mt-10 flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
             @foreach ($projectFilters as $key => $label)
                 <button type="button" data-filter="{{ $key }}" class="filter-btn"
@@ -18,7 +18,7 @@
                     {{ $label }}
                 </button>
             @endforeach
-        </div>
+        </div> -->
 
         {{-- Cards --}}
         <div id="projects-grid" class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -26,20 +26,29 @@
                 <article data-category="{{ $project['category'] }}"
                          class="project-card reveal card group flex flex-col overflow-hidden hover:-translate-y-1.5 hover:border-indigo-500/40 hover:shadow-lg dark:hover:border-indigo-400/40"
                          style="transition-delay: {{ min($index, 5) * 60 }}ms">
-                    @if ($project['demo'] !== '#' || $project['github'] !== '#')
-                        <a href="{{ $project['demo'] !== '#' ? $project['demo'] : $project['github'] }}"
-                           target="_blank" rel="noopener noreferrer"
-                           class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800"
-                           tabindex="-1" aria-hidden="true">
-                            <img src="{{ $project['image'] }}" alt="Screenshot of {{ $project['title'] }}" loading="lazy"
-                                 width="1200" height="750"
-                                 class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
-                        </a>
+                    @if (isset($project['image']))
+                        @if ($project['demo'] !== '#' || $project['github'] !== '#')
+                            <a href="{{ $project['demo'] !== '#' ? $project['demo'] : $project['github'] }}"
+                               target="_blank" rel="noopener noreferrer"
+                               class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800"
+                               tabindex="-1" aria-hidden="true">
+                                <img src="{{ $project['image'] }}" alt="Screenshot of {{ $project['title'] }}" loading="lazy"
+                                     width="1200" height="750"
+                                     class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                            </a>
+                        @else
+                            <div class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                                <img src="{{ $project['image'] }}" alt="Screenshot of {{ $project['title'] }}" loading="lazy"
+                                     width="1200" height="750"
+                                     class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                            </div>
+                        @endif
                     @else
-                        <div class="relative block aspect-[16/10] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-                            <img src="{{ $project['image'] }}" alt="Screenshot of {{ $project['title'] }}" loading="lazy"
-                                 width="1200" height="750"
-                                 class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                        {{-- No image provided — show auto-generated initials tile --}}
+                        <div class="relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-700">
+                            <span class="font-display text-3xl font-bold text-zinc-300 dark:text-zinc-500">
+                                {{ strtoupper(collect(explode(' ', $project['title']))->take(2)->map(fn($w) => $w[0])->join('')) }}
+                            </span>
                         </div>
                     @endif
 

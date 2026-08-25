@@ -6,10 +6,10 @@
     <div class="container-site">
         <x-section-heading eyebrow="Get in touch" title="Contact me" align="center" />
 
-        <p class="lead mx-auto mt-4 max-w-xl text-center text-zinc-600 dark:text-zinc-400">
+     <!--   <p class="lead mx-auto mt-4 max-w-xl text-center text-zinc-600 dark:text-zinc-400">
             Have a question about my work, an opportunity, or just want to say hi?
             My inbox is always open — I&rsquo;ll get back to you as soon as I can.
-        </p>
+        </p> -->
 
         <div class="mt-14 grid items-start gap-8 lg:grid-cols-5">
             {{-- Contact info cards --}}

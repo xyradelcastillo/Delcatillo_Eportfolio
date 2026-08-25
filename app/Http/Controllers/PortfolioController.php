@@ -78,8 +78,8 @@ class PortfolioController extends Controller
             'headline' => 'Building practical software solutions from the ground up. ',
             'bio_short' => 'Passionate IT student focused on developing database management tools and backend systems that streamline real-world operations.',
             'bio' => [
-                'I am a motivated beginner in Computer Science, deeply engaged in learning the core principles of programming and problem-solving. I am currently exploring web development and applying my growing skills by building small projects.',
-                'As a passionate Computer Science student and aspiring web developer, my purpose is to create meaningful digital experiences that solve real-world problems and make technology accessible to everyone. I am a quick learner seeking an internship or collaborative environment where I can gain hands-on experience and support a development team.',
+                'I am an enthusiastic student developer passionate about leveraging technology to improve daily workflows and operational efficiency. Through hands-on project creation and continuous practice, I aim to design reliable software solutions that are both intuitive and effective.',
+                'My goal is to bridge software functionality with real-world user needs, whether through database management or interactive web platforms. As a fast learner seeking an internship or collaborative project team, I bring a strong problem-solving mindset and a drive to contribute value from day one. Feel free to connect, I am eager to explore internship roles, open-source projects, and technical discussions.',
             ],
             'email' => 'xyradelcastillo@gmail.com',
             'phone' => '+63 955 827 0251', // set to null to hide it
@@ -107,8 +107,8 @@ class PortfolioController extends Controller
         return [
             // EDIT: your own numbers
             ['value' => '15+', 'label' => 'Years of learning'],
-            ['value' => '9+', 'label' => 'Academic awards'],
-            ['value' => '5+', 'label' => 'Programming languages'],
+            ['value' => '4+', 'label' => 'Academic awards'],
+            ['value' => '3+', 'label' => 'Programming languages'],
             ['value' => '4+', 'label' => 'Contests joined'],
         ];
     }
@@ -130,16 +130,9 @@ class PortfolioController extends Controller
             [
                 'institution' => 'Abra High School',
                 'degree' => 'Secondary Education',
-                'field' => 'TVL-ICT CSS NCII',
+                'field' => 'General Academic Strand (GAS) · Senior High School',
                 'period' => '2017 — 2023',
-                'description' => 'Brgy. An-anaao Budac, Tayum, Abra.',
-            ],
-            [
-                'institution' => 'Velasco Elementary School',
-                'degree' => 'Elementary Education',
-                'field' => 'Primary',
-                'period' => '2010 — 2017',
-                'description' => 'Brgy. Velasco, Tayum, Abra.',
+                'description' => 'Zone 3, Bangued, Abra.',
             ],
         ];
     }
@@ -153,26 +146,13 @@ class PortfolioController extends Controller
         return [
             // EDIT: add / remove certificates freely.
             [
-                'title' => 'Computer Systems Servicing NCII',
-                'issuer' => 'TVL-ICT Strand · An-anaao Integrated School',
+                'title' => 'Data Analytics and Visualization Essentials ',
+                'issuer' => 'Department of Information and Communications Technology (DICT)',
                 'icon' => 'award',
                 'period' => '2023',
                 'description' => 'National Certificate II in Computer Systems Servicing earned under the senior high school TVL-ICT strand.',
             ],
-            [
-                'title' => 'Work Immersion — 80 Hours',
-                'issuer' => 'Tayum Municipal Civil Registry · Municipality of Tayum',
-                'icon' => 'briefcase',
-                'period' => 'March 2023',
-                'description' => 'Completed 80 hours of senior high school work immersion assisting at the municipal civil registry office.',
-            ],
-            [
-                'title' => 'Sangguniang Kabataan Kagawad',
-                'issuer' => 'Barangay Velasco, Tayum, Abra',
-                'icon' => 'briefcase',
-                'period' => '2023 — Present',
-                'description' => 'Elected SK Kagawad — Chairman on Education and Culture; Committee on Peace and Environment.',
-            ],
+        
         ];
     }
 
@@ -185,13 +165,13 @@ class PortfolioController extends Controller
         return [
             // EDIT: replace these placeholders with your real projects.
             [
-                'title' => 'ITCS Enrollment System',
-                'slug' => 'itcs-enrollment-system',
-                'description' => 'A comprehensive Java enrollment system for IT and CS students. It collects personal and academic details, displays the right curriculum per course/year/semester, computes tuition fees, applies academic discounts, processes down payments and prints a full enrollment summary with the student\'s balance.',
-                'image' => asset('images/projects/itcs-enrollment.jpg'),
+                'title' => 'Java Enrollment System',
+                'slug' => 'java-enrollment-system',
+                'description' => 'A Java system for IT/CS students that collects student details, displays the correct curriculum, and computes tuition with discounts. It handles down payments and prints a full enrollment summary with balance.',
+                'image' => asset('images/projects/itcs-enrollment.jpg'), // omit this key to get an auto-generated placeholder tile
                 'github' => '#',
                 'demo' => '#', // live demo URL, or '#'
-                'tags' => ['Java', 'Console App'],
+                'tags' => [],
                 'category' => 'school',
             ],
             [
@@ -201,7 +181,7 @@ class PortfolioController extends Controller
                 'image' => asset('images/projects/student-management-python.png'),
                 'github' => '#',
                 'demo' => '#',
-                'tags' => ['Python', 'CRUD'],
+                'tags' => [],
                 'category' => 'school',
             ],
             [

@@ -4,7 +4,7 @@
         <div class="text-center sm:text-left">
             <p class="font-display text-base font-semibold text-zinc-900 dark:text-white">{{ $profile['name'] }}</p>
             <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                &copy; {{ date('Y') }} · Built with Laravel &amp; Tailwind CSS
+              &copy; {{ date('Y') }} · All Rights Reserved  <!--  Built with Laravel &amp; Tailwind CSS -->
             </p>
         </div>
 
