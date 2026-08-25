@@ -97,7 +97,7 @@
             </form>
         </div>
 
-        {{-- Social links --}}
+      <!--  {{-- Social links --}}
         <div class="mt-12 flex items-center justify-center gap-3">
             <a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer" class="icon-btn"
                aria-label="GitHub profile" title="GitHub">
@@ -112,7 +112,7 @@
             <a href="mailto:{{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
                 <x-icon name="mail" />
             </a>
-        </div>
+        </div> -->
     </div>
 </section>
 

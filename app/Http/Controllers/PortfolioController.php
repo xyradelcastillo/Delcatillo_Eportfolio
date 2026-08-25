@@ -82,7 +82,7 @@ class PortfolioController extends Controller
                 'As a passionate Computer Science student and aspiring web developer, my purpose is to create meaningful digital experiences that solve real-world problems and make technology accessible to everyone. I am a quick learner seeking an internship or collaborative environment where I can gain hands-on experience and support a development team.',
             ],
             'email' => 'xyradelcastillo@gmail.com',
-            'phone' => '+63 918 467 600', // set to null to hide it
+            'phone' => '+63 955 827 0251', // set to null to hide it
             'location' => 'Zone 1, Linasin Bangued Abra',
             'availability' => '', // set a value like 'Available for freelance work' to show the green badge
             'github' => '',
@@ -91,8 +91,8 @@ class PortfolioController extends Controller
                 ['icon' => 'facebook', 'label' => 'Facebook', 'url' => '#'],
                 ['icon' => 'instagram', 'label' => 'Instagram', 'url' => '#'],
                 ['icon' => 'tiktok', 'label' => 'TikTok', 'url' => '#'],
-                ['icon' => 'telegram', 'label' => 'Telegram', 'url' => '#'],
-                ['icon' => 'discord', 'label' => 'Discord', 'url' => '#'],
+                ['icon' => 'telegram', 'label' => 'Telegram', 'url' => 'https://t.me/+639558270251'],
+                ['icon' => 'discord', 'label' => 'Discord', 'url' => 'https://discord.com/users/1449760710807785567'],
             ],
             'resume' => asset('files/Xyra-G.-Delcastillo-Resume.pdf'),
             'avatar' => asset('images/xyra.jpg'),
