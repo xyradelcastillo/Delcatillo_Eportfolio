@@ -23,7 +23,7 @@
                         <p>{{ $paragraph }}</p>
                     @endforeach
                     <p>
-                        Feel free to reach out — I&rsquo;m always open to
+                        Feel free to reach out. I&rsquo;m always open to
                         <a href="#contact" class="font-medium text-indigo-600 underline-offset-4 transition hover:underline dark:text-indigo-400">new opportunities</a>,
                         collaborations and interesting conversations.
                     </p>
