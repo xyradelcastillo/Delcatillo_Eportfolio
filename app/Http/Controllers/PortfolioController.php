@@ -75,8 +75,8 @@ class PortfolioController extends Controller
             'name' => 'Xyra G. Delcastillo',
             'initials' => 'Xyra G. Delcastillo',
             'role' => 'BS - Information Technology Student',
-            'headline' => 'I turn curiosity into code, one project at a time.',
-            'bio_short' => 'Motivated Computer Science student from Tayum, Abra, exploring web development while building small projects that sharpen my programming and problem-solving skills.',
+            'headline' => 'Building practical software solutions from the ground up. ',
+            'bio_short' => 'Passionate IT student focused on developing database management tools and backend systems that streamline real-world operations.',
             'bio' => [
                 'I am a motivated beginner in Computer Science, deeply engaged in learning the core principles of programming and problem-solving. I am currently exploring web development and applying my growing skills by building small projects.',
                 'As a passionate Computer Science student and aspiring web developer, my purpose is to create meaningful digital experiences that solve real-world problems and make technology accessible to everyone. I am a quick learner seeking an internship or collaborative environment where I can gain hands-on experience and support a development team.',
@@ -88,9 +88,9 @@ class PortfolioController extends Controller
             'github' => '',
             'linkedin' => '', // no LinkedIn yet — paste your profile URL here when you have one
             'socials' => [
-                ['icon' => 'facebook', 'label' => 'Facebook', 'url' => '#'],
-                ['icon' => 'instagram', 'label' => 'Instagram', 'url' => '#'],
-                ['icon' => 'tiktok', 'label' => 'TikTok', 'url' => '#'],
+                ['icon' => 'facebook', 'label' => 'Facebook', 'url' => 'https://www.facebook.com/agaznog.delcastillo'],
+                ['icon' => 'instagram', 'label' => 'Instagram', 'url' => 'https://www.instagram.com/kakashiiyashori_'],
+                ['icon' => 'tiktok', 'label' => 'TikTok', 'url' => 'https://www.tiktok.com/@dee_matchaaa'],
                 ['icon' => 'telegram', 'label' => 'Telegram', 'url' => 'https://t.me/+639558270251'],
                 ['icon' => 'discord', 'label' => 'Discord', 'url' => 'https://discord.com/users/1449760710807785567'],
             ],
