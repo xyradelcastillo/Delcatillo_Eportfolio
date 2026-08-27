@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CV | {{ $profile['name'] }}</title>
-    <link rel="icon" type="image/png" href="{{ asset('images/c_logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/x_logo.png') }}">
     <style>
         :root { --accent: #4f46e5; --ink: #18181b; --muted: #52525b; --line: #e4e4e7; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -76,7 +76,7 @@
             <h1>{{ $profile['name'] }}</h1>
             <p class="role">{{ $profile['role'] }}</p>
             <p class="contact">
-                <span><a href="mailto:{{ $profile['email'] }}">{{ $profile['email'] }}</a></span>
+                <span><a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $profile['email'] }}">{{ $profile['email'] }}</a></span>
                 @if (!empty($profile['phone']))<span>{{ $profile['phone'] }}</span>@endif
                 <span>{{ $profile['location'] }}</span>
                 <span><a href="{{ $profile['github'] }}" target="_blank" rel="noopener noreferrer">{{ str_replace(['https://', 'http://'], '', $profile['github']) }}</a></span>

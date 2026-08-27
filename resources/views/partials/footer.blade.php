@@ -23,7 +23,7 @@
                     <x-icon name="{{ $social['icon'] }}" class="h-4 w-4" />
                 </a>
             @endforeach
-            <a href="mailto:{{ $profile['email'] }}" class="icon-btn h-9 w-9"
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $profile['email'] }}" class="icon-btn h-9 w-9"
                aria-label="Send an email" title="Email">
                 <x-icon name="mail" class="h-4 w-4" />
             </a>

@@ -25,3 +25,7 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Contact mailer config — contains a Gmail app password, never commit
+/send.php
+/mailer/

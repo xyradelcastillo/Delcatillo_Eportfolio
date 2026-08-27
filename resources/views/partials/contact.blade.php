@@ -30,7 +30,7 @@
                     </span>
                     <div class="min-w-0">
                         <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Email</h3>
-                        <a href="mailto:{{ $profile['email'] }}" class="mt-1 block break-all text-sm text-zinc-500 transition hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $profile['email'] }}" class="mt-1 block break-all text-sm text-zinc-500 transition hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400">
                             {{ $profile['email'] }}
                         </a>
                     </div>
@@ -109,15 +109,14 @@
                     <x-icon name="{{ $social['icon'] }}" />
                 </a>
             @endforeach
-            <a href="mailto:{{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
                 <x-icon name="mail" />
             </a>
         </div> -->
     </div>
 </section>
 
-{{-- No backend mailer is configured: build a pre-filled email in the visitor's
-     mail app instead. Swap this for a POST route + Mailable later if needed. --}}
+{{-- Form sends via send.php (Gmail SMTP + app password) --}}
 <script>
     (function () {
         var form = document.getElementById('contact-form');
@@ -130,17 +129,39 @@
                 return;
             }
 
-            var data = new FormData(form);
-            var subject = encodeURIComponent(data.get('subject'));
-            var body = encodeURIComponent(
-                data.get('message') + '\n\n— ' + data.get('name') + ' (' + data.get('email') + ')'
-            );
-
-            window.location.href =
-                "mailto:{{ $profile['email'] }}?subject=" + subject + '&body=' + body;
-
-            status.textContent = 'Opening your email app — your message is ready to send.';
-            status.classList.remove('hidden');
+            fetch('/E_PORTFOLIO/send.php', {
+                method: 'POST',
+                body: new FormData(form)
+            })
+                .then(function (res) {
+                    if (res.status === 404) {
+                        throw new Error('Mailer endpoint not found (404)');
+                    }
+                    return res.json();
+                })
+                .then(function (result) {
+                    if (result.success) {
+                        status.textContent = 'Message sent successfully! ✔';
+                        status.style.color = '#16a34a';
+                        status.style.fontWeight = '600';
+                        status.classList.remove('hidden');
+                        status.style.display = 'block';
+                        form.reset();
+                    } else {
+                        status.textContent = result.message;
+                        status.style.color = '#dc2626';
+                        status.style.fontWeight = '600';
+                        status.classList.remove('hidden');
+                        status.style.display = 'block';
+                    }
+                    status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                })
+                .catch(function (err) {
+                    console.error('Mailer Error:', err);
+                    status.textContent = 'Send failed: ' + (err && err.message ? err.message : 'mailer unreachable. Open this page via http://localhost, not file://');
+                    status.style.color = '#dc2626';
+                    status.classList.remove('hidden');
+                });
         });
     })();
 </script>

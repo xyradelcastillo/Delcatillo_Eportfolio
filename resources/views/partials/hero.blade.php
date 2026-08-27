@@ -50,7 +50,7 @@
                         <x-icon name="{{ $social['icon'] }}" />
                     </a>
                 @endforeach
-                <a href="mailto:{{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ $profile['email'] }}" class="icon-btn" aria-label="Send an email" title="Email">
                     <x-icon name="mail" />
                 </a>
                 @if (!empty($profile['phone']))
