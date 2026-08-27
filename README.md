@@ -23,15 +23,6 @@ The site uses **no database**: every piece of content lives in plain PHP arrays 
 - **Reveal-on-scroll animations**, filter buttons and smooth anchor scrolling — vanilla JavaScript, no front-end framework.
 - **Self-hosted fonts & inline SVG icons** — Inter and Space Grotesk are bundled via Fontsource; no external requests.
 
-### CV & Resume
-
-| Route | Behavior |
-| --- | --- |
-| `/cv` | Standalone, print-styled CV page rendered from the same content arrays |
-| `/cv?print=1` | Opens the CV and auto-launches the print dialog |
-| `/cv/download` | Generates a real PDF on the fly (dependency-free generator in `app/Support/CvPdf.php`, core Helvetica fonts) |
-| `/resume` | Viewers for the resume file (`public/files/My Resume.pdf`) inside an iframe, with Download and Print buttons |
-
 ### Contact form
 
 The form in the Contact section posts `name`, `email`, `subject` and `message` to a standalone `send.php` script, which delivers the message via **PHPMailer** using your Gmail address and an SMTP app password. Success and error states are shown inline.
@@ -48,37 +39,7 @@ The form in the Contact section posts `name`, `email`, `subject` and `message` t
 - **PHPMailer** (vendored copy in `mailer/src/`) for the contact mailer
 - **Self-hosted Fontsource variable fonts** — Inter and Space Grotesk
 
-## Project structure
 
-| File / directory | Purpose |
-| --- | --- |
-| `app/Http/Controllers/PortfolioController.php` | **All portfolio content** — profile info, bio, stats, education, certificates, projects and category filters (search for `EDIT:` markers) |
-| `app/Support/CvPdf.php` | Dependency-free PDF generator for the CV download |
-| `routes/web.php` | The four routes: `/`, `/cv`, `/cv/download`, `/resume` |
-| `resources/views/layouts/app.blade.php` | Base HTML, theme-init script, nav & footer includes |
-| `resources/views/home.blade.php` | Single-page home layout, includes all partials |
-| `resources/views/cv.blade.php` | Print-styled CV page |
-| `resources/views/resume.blade.php` | Resume PDF viewer (Download / Print) |
-| `resources/views/partials/*.blade.php` | Hero, about, education, projects, contact, navigation, footer |
-| `resources/views/components/*.blade.php` | Reusable `icon` (SVG set) and `section-heading` components |
-| `resources/js/app.js` | Theme toggle, accent picker, mobile menu, project filters, scroll reveal |
-| `resources/css/app.css` | Tailwind layers, accent palettes (`[data-accent=...]`), component classes |
-| `tailwind.config.js` | Tailwind config — `darkMode: 'class'`, accent CSS variables, font families |
-| `vite.config.js` | Vite input configuration for Blade + JS |
-| `send.php` + `mailer/src/` | Contact mailer built on the vendored PHPMailer copy |
-| `public/images/` | Avatar (`xyra.jpg`), logo, and project screenshots (`images/projects/`) |
-| `public/files/` | `My Resume.pdf` used by the resume route |
-
-## Editing your content
-
-All visible content is defined in **one file** — `app/Http/Controllers/PortfolioController.php`. The arrays are commented with `EDIT:` markers:
-
-```php
-// app/Http/Controllers/PortfolioController.php
-'name'  => 'Xyra G. Delcastillo',                       // ← your name
-'email' => 'xyradelcastillo@gmail.com',                 // ← contact email
-'github'=> 'https://github.com/xyradelcastillo',        // ← profile URL
-```
 
 ### Projects
 
@@ -90,54 +51,3 @@ Each project entry needs `title`, `description`, `image`, optional `demo` and `g
 - **Composer**
 - **Node.js 20.19+ (or 22.12+)** and npm — required by Vite 8
 
-> ⚠️ On this machine the XAMPP CLI ships PHP 8.0, which is too old for Laravel 13.
-> A suitable PHP lives at `C:\tools\php83\php.exe` — prefix commands with it or put
-> that folder first on your PATH.
-
-## Running locally
-
-```bash
-# 1. Install PHP dependencies
-composer install -o
-
-# 2. Create an environment file and generate the app key
-#    (no .env.example ships with this project — copy this minimal file:)
-copy .env  # or create .env manually, then:
-php artisan key:generate
-```
-
-Minimal `.env` (the project has no database — `APP_KEY` is the only required setting):
-
-```env
-APP_NAME="E Portfolio"
-APP_ENV=local
-APP_KEY=
-APP_URL=http://127.0.0.1:8000
-SESSION_DRIVER=file
-CACHE_STORE=file
-QUEUE_CONNECTION=sync
-LOG_CHANNEL=stack
-```
-
-```bash
-# 3. Install frontend dependencies
-npm install
-
-# 4a. Development (hot reload)
-npm run dev
-php artisan serve
-
-# 4b. Production build
-npm run build
-php artisan serve
-```
-
-Then open <http://127.0.0.1:8000>.
-
-Under **XAMPP/Apache**, the app is served from the htdocs folder, e.g. <http://localhost/E_PORTFOLIO/public>.
-
-## Notes
-
-- **No database**: sessions and cache use the `file` driver; there are no migrations or Eloquent models used by the portfolio.
-- All icons are inline SVGs and all fonts are self-hosted — the page makes no external requests at runtime.
-- The contact mailer requires a Gmail **app password** set in `send.php`; PHPMailer is included as a vendored copy in `mailer/src/` (it is not installed via Composer).
