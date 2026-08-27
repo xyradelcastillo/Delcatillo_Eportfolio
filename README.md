@@ -23,14 +23,6 @@ The site uses **no database**: every piece of content lives in plain PHP arrays 
 - **Reveal-on-scroll animations**, filter buttons and smooth anchor scrolling — vanilla JavaScript, no front-end framework.
 - **Self-hosted fonts & inline SVG icons** — Inter and Space Grotesk are bundled via Fontsource; no external requests.
 
-### Contact form
-
-The form in the Contact section posts `name`, `email`, `subject` and `message` to a standalone `send.php` script, which delivers the message via **PHPMailer** using your Gmail address and an SMTP app password. Success and error states are shown inline.
-
-> ⚠️ **Security note:** `send.php` stores the Gmail app password in plain text. Keep this file out of version control — do **not** push it to a public GitHub repository.
-
-## Technologies used
-
 - **PHP ^8.3** and **Laravel ^13** (framework only — no database, no Eloquent)
 - **Blade templates** with custom components and partials
 - **Tailwind CSS ^3.4** (`darkMode: 'class'`), PostCSS + Autoprefixer
@@ -38,8 +30,6 @@ The form in the Contact section posts `name`, `email`, `subject` and `message` t
 - **Vanilla JavaScript** (`resources/js/app.js`) for all interactions
 - **PHPMailer** (vendored copy in `mailer/src/`) for the contact mailer
 - **Self-hosted Fontsource variable fonts** — Inter and Space Grotesk
-
-
 
 ### Projects
 
