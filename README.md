@@ -1,6 +1,6 @@
 # Personal Portfolio — Xyra G. Delcastillo
 
-A single-page, fully responsive personal portfolio website built with **Laravel**, **Blade** and **Tailwind CSS**. It presents the owner's basic information, short bio, portrait, educational background, certificates, and a filterable grid of academic/personal projects — along with printable/downloadable CV and resume pages, and a working contact form.
+A single-page, fully responsive personal portfolio website built with **Laravel**, **Blade** and **Tailwind CSS**. It presents the owner's basic information, short bio, portrait, educational background, certificates, and a filterable grid of academic/personal projects — along with printable/downloadable CV and resume pages.
 
 The site uses **no database**: every piece of content lives in plain PHP arrays and Blade views, so the whole portfolio is easy to maintain.
 
@@ -12,7 +12,7 @@ The site uses **no database**: every piece of content lives in plain PHP arrays 
 | **About** | Portrait image, expanded bio, quick statistics |
 | **Education & Certificates** | Vertical education timeline plus certificate/achievement cards |
 | **Projects** | Card grid with screenshot, description, tags, and **Demo** / **GitHub** buttons; filterable by category (all / school / web / database) |
-| **Contact** | Contact information cards (location, email, phone, GitHub, socials) plus a working contact form |
+| **Contact** | Contact information cards (location, email, phone, GitHub, socials) |
 | **Footer** | Social icons and attribution |
 
 ### Extras
@@ -28,7 +28,6 @@ The site uses **no database**: every piece of content lives in plain PHP arrays 
 - **Tailwind CSS ^3.4** (`darkMode: 'class'`), PostCSS + Autoprefixer
 - **Vite ^8** with `laravel-vite-plugin` for asset bundling
 - **Vanilla JavaScript** (`resources/js/app.js`) for all interactions
-- **PHPMailer** (vendored copy in `mailer/src/`) for the contact mailer
 - **Self-hosted Fontsource variable fonts** — Inter and Space Grotesk
 
 ### Projects

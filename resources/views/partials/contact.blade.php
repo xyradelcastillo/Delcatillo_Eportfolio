@@ -11,9 +11,8 @@
             My inbox is always open — I&rsquo;ll get back to you as soon as I can.
         </p> -->
 
-        <div class="mt-14 grid items-start gap-8 lg:grid-cols-5">
+        <div class="mt-14 grid items-start gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {{-- Contact info cards --}}
-            <div class="grid gap-4 lg:col-span-2">
                 <div class="reveal card flex items-start gap-4 p-5 hover:-translate-y-1 hover:border-indigo-500/40 hover:shadow-md dark:hover:border-indigo-400/40">
                     <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400" aria-hidden="true">
                         <x-icon name="map-pin" class="h-5 w-5" />
@@ -64,37 +63,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- Message form --}}
-            <form id="contact-form" class="reveal card p-6 shadow-soft sm:p-8 lg:col-span-3 dark:shadow-soft-dark" novalidate>
-                <div class="grid gap-5 sm:grid-cols-2">
-                    <div>
-                        <label for="contact-name" class="form-label">Your Full Name <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
-                        <input type="text" id="contact-name" name="name" required placeholder="Enter your full name" class="form-field" />
-                    </div>
-                    <div>
-                        <label for="contact-email" class="form-label">Your Email Address <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
-                        <input type="email" id="contact-email" name="email" required placeholder="Enter your email address" class="form-field" />
-                    </div>
-                </div>
-
-                <div class="mt-5">
-                    <label for="contact-subject" class="form-label">Your Subject <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
-                    <input type="text" id="contact-subject" name="subject" required placeholder="Enter message subject" class="form-field" />
-                </div>
-
-                <div class="mt-5">
-                    <label for="contact-message" class="form-label">Your Message <span class="text-indigo-600 dark:text-indigo-400">*</span></label>
-                    <textarea id="contact-message" name="message" rows="6" required placeholder="Type your message here..." class="form-field resize-y"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">
-                    Send Message
-                    <x-icon name="send" class="h-4 w-4" />
-                </button>
-
-                <p id="contact-status" class="mt-4 hidden text-sm font-medium text-emerald-700 dark:text-emerald-400"></p>
-            </form>
         </div>
 
       <!--  {{-- Social links --}}
@@ -115,53 +83,3 @@
         </div> -->
     </div>
 </section>
-
-{{-- Form sends via send.php (Gmail SMTP + app password) --}}
-<script>
-    (function () {
-        var form = document.getElementById('contact-form');
-        var status = document.getElementById('contact-status');
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            if (!form.reportValidity()) {
-                return;
-            }
-
-            fetch('/E_PORTFOLIO/send.php', {
-                method: 'POST',
-                body: new FormData(form)
-            })
-                .then(function (res) {
-                    if (res.status === 404) {
-                        throw new Error('Mailer endpoint not found (404)');
-                    }
-                    return res.json();
-                })
-                .then(function (result) {
-                    if (result.success) {
-                        status.textContent = 'Message sent successfully! ✔';
-                        status.style.color = '#16a34a';
-                        status.style.fontWeight = '600';
-                        status.classList.remove('hidden');
-                        status.style.display = 'block';
-                        form.reset();
-                    } else {
-                        status.textContent = result.message;
-                        status.style.color = '#dc2626';
-                        status.style.fontWeight = '600';
-                        status.classList.remove('hidden');
-                        status.style.display = 'block';
-                    }
-                    status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                })
-                .catch(function (err) {
-                    console.error('Mailer Error:', err);
-                    status.textContent = 'Send failed: ' + (err && err.message ? err.message : 'mailer unreachable. Open this page via http://localhost, not file://');
-                    status.style.color = '#dc2626';
-                    status.classList.remove('hidden');
-                });
-        });
-    })();
-</script>

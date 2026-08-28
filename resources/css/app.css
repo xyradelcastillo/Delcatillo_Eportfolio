@@ -169,15 +169,6 @@
     .filter-btn[aria-pressed='true'] {
         @apply bg-indigo-600 text-white ring-inset ring-indigo-600 hover:text-white dark:bg-indigo-500 dark:ring-indigo-500 dark:hover:text-white;
     }
-
-    /* Contact form fields */
-    .form-label {
-        @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400;
-    }
-
-    .form-field {
-        @apply w-full rounded-xl border border-zinc-300 bg-white px-4 py-2.5 text-sm text-zinc-800 placeholder:text-zinc-400 transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-indigo-400;
-    }
 }
 
 @layer utilities {
