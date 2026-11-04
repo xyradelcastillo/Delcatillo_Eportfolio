@@ -2,11 +2,11 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
     "framework": null,
-    "installCommand": "composer install --no-dev --optimize-autoloader",
-    "buildCommand": "npm ci && npm run build",
+    "installCommand": "apt-get update -qq && apt-get install -y -qq php-cli php-curl php-zip php-mbstring php-xml php-tokenizer unzip curl && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
+    "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build",
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.9.0",
+            "runtime": "vercel-php@0.5.2",
             "maxDuration": 30
         }
     },
