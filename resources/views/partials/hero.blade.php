@@ -32,7 +32,7 @@
                 <a href="#contact" class="btn btn-secondary">
                     <i class="fas fa-envelope"></i> Get in touch</a>
                 @if (!empty($profile['resume']))
-                    <a href="{{ $profile['resume'] }}" class="btn btn-secondary">
+                    <a href="{{ $profile['resume'] }}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
                         <x-icon name="eye" class="h-4 w-4" />
                         Resume
                     </a>

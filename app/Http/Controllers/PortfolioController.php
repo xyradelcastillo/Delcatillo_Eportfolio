@@ -102,7 +102,7 @@ class PortfolioController extends Controller
                 ['icon' => 'telegram', 'label' => 'Telegram', 'url' => 'https://t.me/+639558270251'],
                 ['icon' => 'discord', 'label' => 'Discord', 'url' => 'https://discord.com/users/1449760710807785567'],
             ],
-            'resume' => route('resume'),
+            'resume' => asset('files/My Resume.pdf'),
             'avatar' => asset('images/xyra.jpg'),
         ];
     }
