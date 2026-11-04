@@ -152,7 +152,14 @@ class PortfolioController extends Controller
     private function certificates(): array
     {
         return [
-            // EDIT: add / remove certificates freely.
+            // EDIT: add / remove certificates freely — newest first.
+            [
+                'title' => 'Introduction to Cybersecurity',
+                'issuer' => 'Cisco Networking Academy',
+                'icon' => 'award',
+                'period' => '2026',
+                'description' => '',
+            ],
             [
                 'title' => 'Data Analytics and Visualization Essentials ',
                 'issuer' => 'Department of Information and Communications Technology (DICT)',
@@ -160,14 +167,13 @@ class PortfolioController extends Controller
                 'period' => '2023',
                 'description' => '',
             ],
-              [
+            [
                 'title' => 'Online Safety Through Netiquette',
                 'issuer' => 'Department of Information and Communications Technology (DICT)',
                 'icon' => 'award',
                 'period' => '2023',
                 'description' => '',
             ],
-        
         ];
     }
 
@@ -208,6 +214,16 @@ class PortfolioController extends Controller
                 'demo' => '#',
                 'tags' => [],
                 'category' => '',
+            ],
+            [
+                'title' => 'Barangay Document Request and Public Information System',
+                'slug' => 'barangay-document-request-public-information-system',
+                'description' => 'A system that streamlines barangay document requests and public information dissemination, allowing residents to submit requests online and track status while officials manage approvals and records.',
+                'image' => asset('images/BDRPIS/BDRPIS_1.jpg'),
+                'github' => '#',
+                'demo' => '#',
+                'tags' => [],
+                'category' => 'school',
             ],
         ];
     }
