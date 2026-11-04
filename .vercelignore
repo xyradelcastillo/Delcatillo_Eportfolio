@@ -5,6 +5,6 @@ vendor
 .git
 tests
 storage/logs
-public/build
+
 prompt_log.md
 README.md

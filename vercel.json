@@ -2,10 +2,11 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
     "framework": null,
-    "buildCommand": "npm ci && npm run build",
+    "outputDirectory": "public/build",
+    "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build",
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.5.2",
+            "runtime": "vercel-php@1.1.0",
             "maxDuration": 30
         }
     },
