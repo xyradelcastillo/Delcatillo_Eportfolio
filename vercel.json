@@ -2,7 +2,7 @@
     "$schema": "https://openapi.vercel.sh/vercel.json",
     "version": 2,
     "framework": null,
-    "installCommand": "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
+    "installCommand": "apt-get update && apt-get install -y php-cli php-curl php-mbstring php-xml php-dom php-zip php-fileinfo && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer",
     "buildCommand": "composer install --no-dev --optimize-autoloader && npm ci && npm run build",
     "functions": {
         "api/index.php": {
