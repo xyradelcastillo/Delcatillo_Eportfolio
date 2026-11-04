@@ -1,7 +1,9 @@
-/vendor
-/node_modules
-/.env
-/.env.*
-/public/hot
-/public/storage
-/storage/logs
+node_modules
+vendor
+.env
+.env.*
+.git
+tests
+storage/logs
+prompt_log.md
+README.md
