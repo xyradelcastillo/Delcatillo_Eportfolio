@@ -226,3 +226,9 @@
         transition: none;
     }
 }
+
+/* Cache-buster: regenerate asset hashes after the Vercel 404-cache incident. */
+
+:root {
+    --build-cache-buster: 2026-11-05-2;
+}
